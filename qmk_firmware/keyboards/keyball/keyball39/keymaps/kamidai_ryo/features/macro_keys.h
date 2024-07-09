@@ -301,7 +301,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             tap_code16(G(KC_A));
           }
           if (keycode == SFT_T_S_KC_SCOLON) {
-            tap_code16(S(KC_SCOLON));
+            tap_code16(S(KC_SCLN));
           }
         }
       }
