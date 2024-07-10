@@ -46,7 +46,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   //static bool is_gui_active = false;　240710不要箇所削除に伴い不要
   //static bool is_ctrl_active = false;
 
-  static bool is_kana = false;  // レイヤー1の状態を追跡する変数
+  //static bool is_kana = false;  // レイヤー1の状態を追跡する変数
 
   switch (keycode) {
     // デフォルトのマウスキーを自動クリックレイヤーで使用可能にする
@@ -74,16 +74,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return true;
     }
 
+    /*
       // コンボ
-    case COMBO_MINUS_SPACE:
-      if (record->event.pressed) {
-        tap_code(KC_LNG2);  //
-        tap_code(KC_MINUS);  // -　を送信
-        tap_code(KC_SPACE);  //  スペース を送信
-        tap_code(KC_LNG1);  //
-      }
-      return false;
-
     case COMBO_BRC:
   
       if (record->event.pressed) {
@@ -99,6 +91,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         
       }
       return false;
+    */
 
     // 以下スワイプジェスチャー
     // クリックすると state が SWIPE になり、離したら NONE になる

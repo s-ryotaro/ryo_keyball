@@ -144,7 +144,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
         break;
 
       case SWIPE:
-        rgblight_sethsv(HSV_SPRINGGREEN);  // LEDをスプリング・グリーンに変更
+        //rgblight_sethsv(HSV_SPRINGGREEN);  // LEDをスプリング・グリーンに変更
         break;
 
       case SWIPING:

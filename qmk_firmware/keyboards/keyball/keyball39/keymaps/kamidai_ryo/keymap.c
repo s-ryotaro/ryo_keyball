@@ -59,7 +59,7 @@
 #include "features/combo.h"
 
 // clang-format off
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
   [0] = LAYOUT_universal(
     KC_TAB   , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
@@ -112,10 +112,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
+
 layer_state_t layer_state_set_user(layer_state_t state) {
   // レイヤーが1または3の場合、スクロールモードが有効になる
   //keyball_set_scroll_mode(get_highest_layer(state) == 1 || get_highest_layer(state) == 3);
-  // keyball_set_scroll_mode(get_highest_layer(state) == 3);
+  keyball_set_scroll_mode(get_highest_layer(state) == 3);
 
   // レイヤーとLEDを連動させる
   return state;
