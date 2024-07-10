@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define RGBLIGHT_EFFECT_TWINKLE
 // #endif
 
-#define COMBO_COUNT 9
+#define COMBO_COUNT 1
 
 #define KEYBALL_SCROLLSNAP_ENABLE 0  // scrollsnapをオフにする
 
@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DYNAMIC_KEYMAP_LAYER_COUNT 7
 
 #define KEYBALL_CPI_DEFAULT 700       // 光学センサーPMW3360DM の解像度 (CPI) の規定値
-#define KEYBALL_SCROLL_DIV_DEFAULT 4  // スクロール速度の規定値
+#define KEYBALL_SCROLL_DIV_DEFAULT 1  // スクロール速度の規定値
 
 // ファームウェアのサイズを削減
 #define NO_ACTION_ONESHOT  // 392バイト

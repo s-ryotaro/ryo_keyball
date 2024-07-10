@@ -19,15 +19,16 @@ enum custom_keycodes {
   KC_TRIPLE_CLICK_BTN1,                         // (0x5DB1): 1タップでトリプルクリックできるBTN1
   SFT_T_G_KC_A,                                 // (0x5DB2):
   SFT_T_S_KC_SCOLON,                            // (0x5DB3):
+  
   COMBO_BRC,                                    // (0x5DB5):
-  COMBO_select_BRC,                             // (0x5DB5):
-  COMBO_S9_S0,                                  // (0x5DB5):
-  COMBO_select_S9_S0,                           // (0x5DB5):
-  COMBO_S_BRC,                                  // (0x5DB5):
-  COMBO_select_S_BRC,                           // (0x5DB5):
-  COMBO_sumitsuki_BRC,                          // (0x5DB5):
-  COMBO_select_sumitsuki_BRC,                   // (0x5DB5):
-  COMBO_MINUS_SPACE,                            // (0x5DB5):
+  //COMBO_select_BRC,                             // (0x5DB5):
+  //COMBO_S9_S0,                                  // (0x5DB5):
+  //COMBO_select_S9_S0,                           // (0x5DB5):
+  //COMBO_S_BRC,                                  // (0x5DB5):
+  //COMBO_select_S_BRC,                           // (0x5DB5):
+  //COMBO_sumitsuki_BRC,                          // (0x5DB5):
+  //COMBO_select_sumitsuki_BRC,                   // (0x5DB5):
+  //COMBO_MINUS_SPACE,                            // (0x5DB5):
   // CUSTOM_LT1_LEFT,                                    //
   // CUSTOM_LT1_LEFT,                                    //
   // CUSTOM_S9,                                    //
@@ -84,13 +85,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
 
     case COMBO_BRC:
-    case COMBO_select_BRC:
-    case COMBO_S9_S0:
-    case COMBO_select_S9_S0:
-    case COMBO_S_BRC:
-    case COMBO_select_S_BRC:
-    case COMBO_sumitsuki_BRC:
-    case COMBO_select_sumitsuki_BRC:
+  
       if (record->event.pressed) {
         // 選択バージョン
         if (keycode == COMBO_select_BRC || keycode == COMBO_select_S9_S0 || keycode == COMBO_select_S_BRC || keycode == COMBO_select_sumitsuki_BRC) {
@@ -101,31 +96,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (keycode == COMBO_BRC || keycode == COMBO_select_BRC) {
           tap_code(KC_LBRC);  // 「　を送信
           tap_code(KC_RBRC);  //  」 を送信
-        } else if (keycode == COMBO_S9_S0 || keycode == COMBO_select_S9_S0) {
-          tap_code16(S(KC_9));  // （　を送信
-          tap_code16(S(KC_0));  //  ） を送信
-        } else if (keycode == COMBO_S_BRC || keycode == COMBO_select_S_BRC) {
-          tap_code16(S(KC_LBRC));  // 『　を送信
-          tap_code16(S(KC_RBRC));  //  』 を送信
-        } else if (keycode == COMBO_sumitsuki_BRC || keycode == COMBO_select_sumitsuki_BRC) {
-          tap_code16(A(KC_9));  // 　を送信
-          tap_code16(A(KC_0));  //  ） を送信
-        }
-        // かなの場合にKC_ENTを送信
-        if (is_kana) {
-          tap_code(KC_ENT);
-        }
-        // KC_LEFT を送信
-        tap_code(KC_LEFT);
-        // }
-
-        // 選択バージョン
-        if (keycode == COMBO_select_BRC || keycode == COMBO_select_S9_S0 || keycode == COMBO_select_S_BRC || keycode == COMBO_select_sumitsuki_BRC) {
-          tap_code16(G(KC_V));  // ペースト
-          wait_ms(130);         // 0.1秒（1300ミリ秒）待機
-          tap_code(KC_RIGHT);
-        }
-
+        
       }
       return false;
 
