@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 // 容量削減のため以下をオミット
-// #ifdef RGBLIGHT_ENABLE
+#ifdef RGBLIGHT_ENABLE
 // #define RGBLIGHT_EFFECT_BREATHING
 // #define RGBLIGHT_EFFECT_RAINBOW_MOOD
 // #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DYNAMIC_KEYMAP_LAYER_COUNT 7
 
 #define KEYBALL_CPI_DEFAULT 700       // 光学センサーPMW3360DM の解像度 (CPI) の規定値
-#define KEYBALL_SCROLL_DIV_DEFAULT 1  // スクロール速度の規定値
+#define KEYBALL_SCROLL_DIV_DEFAULT 6  // スクロール速度の規定値
 
 // ファームウェアのサイズを削減
 #define NO_ACTION_ONESHOT  // 392バイト
