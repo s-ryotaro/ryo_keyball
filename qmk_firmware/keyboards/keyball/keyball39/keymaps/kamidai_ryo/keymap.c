@@ -1,30 +1,9 @@
 /*
- * Copyright 2022 @Yowkees
- * Copyright 2022 MURAOKA Taro (aka KoRoN, @kaoriya)
- * Copyright 2023 kamidai (@d_kamiichi)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
- * -------------------------------------------------------------------
  *
  * 参考文献：
  * - リポジトリ：
  *   https://github.com/kamiichi99/keyball/tree/main/qmk_firmware/keyboards/keyball/keyball39/keymaps/kamidai
- *
- * - keyballの販売ページ
- *   https://shirogane-lab.com/collections/all
- *
+
  * コード表：
  * - 公式ファームウェアのキーコード：
  *   KBC_RST(0x5DA5): Keyball 設定のリセット
@@ -47,7 +26,7 @@
 #include QMK_KEYBOARD_H
 #include "quantum.h"
 
-//#include "utils/functions.h"
+#include "utils/functions.h"
 #include "features/swipe_gesture.h"
 #include "features/auto_click_layer.h"
 // #include "features/back_to_layer0_btn1.h"
