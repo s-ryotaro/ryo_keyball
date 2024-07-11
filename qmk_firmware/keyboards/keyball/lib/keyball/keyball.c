@@ -171,6 +171,9 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
   float speed_multiplier = 1.0; //速度の倍率
+  if (movement_size < 15) {
+    speed_multiplier = 0.1;
+
     /*
   if (movement_size < 45) {
     speed_multiplier = 3.0;
@@ -178,10 +181,8 @@ static void adjust_mouse_speed(keyball_motion_t *m){
     speed_multiplier = 2.0;
   } else if(movement_size < 15){
     speed_multiplier = 1.0;
-    */
   } else if(movement_size < 14){
     speed_multiplier = 0.1;
-    /*
   } else if(movement_size > 3){
     speed_multiplier = 0.1;
   } else if(movement_size > 2){
