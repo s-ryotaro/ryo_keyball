@@ -170,10 +170,11 @@ void pointing_device_driver_set_cpi(uint16_t cpi) {
 static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
-  float speed_multiplier = 0.5; //速度の倍率
-  if (movement_size > 5) {
-    speed_multiplier = 8.0;
-
+  float speed_multiplier = 1.0; //速度の倍率
+  if (movement_size > 30) {
+    speed_multiplier = 4.0;
+　} else if(movement_size > 10){
+    speed_multiplier = 2.0;
     /*
   if (movement_size < 45) {
     speed_multiplier = 3.0;
