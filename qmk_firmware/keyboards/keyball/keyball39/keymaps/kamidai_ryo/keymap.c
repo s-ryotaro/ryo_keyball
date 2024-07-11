@@ -78,14 +78,14 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_universal(
     _______  , KC_7     , KC_8     , KC_9     , _______  ,                            S(KC_4)  , KC_7     , KC_8     , KC_9     ,KC_SLASH  ,
     KC_0     , KC_4     , KC_5     , KC_6     , _______  ,                            _______  , KC_4     , KC_5     , KC_6     , S(KC_5)  ,
-    _______  , KC_1     , KC_2     , KC_3     , _______  ,                    SFT_T(KC_NUM ), KC_1     , KC_2     , KC_3     , _______  ,
+    _______  , KC_1     , KC_2     , KC_3     , _______  ,                            _______  , KC_1     , KC_2     , KC_3     , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , KC_0     , _______  , _______  , _______  , _______  
   ),
 
   [3] = LAYOUT_universal(
     _______ , S(KC_2)   , S(KC_3)  , KC_QUOTE ,S(KC_QUOTE),                           _______  ,S(KC_RBRC), KC_RBRC  ,S(KC_EQUAL),S(KC_8)  ,
     S(KC_GRAVE),S(KC_MINUS),S(KC_COMMA),S(KC_7),S(KC_BSLS ),                        S(KC_LBRC), KC_LBRC  , S(KC_0)  , KC_MINUS , KC_EQUAL ,
-    A(KC_BSLS ),S(KC_6), _______  ,S(KC_DOT) ,SFT_T_S_KC_SCOLON,               SFT_T(KC_GRAVE), S(KC_9)  , S(KC_1)  ,S(KC_SLASH),KC_SCLN ,
+    A(KC_BSLS ),S(KC_6), _______  ,S(KC_DOT) ,SFT_T_S_KC_SCOLON,               SFT_T(KC_GRAVE), S(KC_9)  , S(KC_1)  ,S(KC_SLASH),KC_COLON ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______
   ),
 
