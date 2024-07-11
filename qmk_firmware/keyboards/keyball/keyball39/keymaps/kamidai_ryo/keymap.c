@@ -59,9 +59,6 @@
 #include "features/combo.h"
 
 // clang-format off
-const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
-// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
