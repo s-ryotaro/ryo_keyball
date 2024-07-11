@@ -47,16 +47,16 @@
 #include QMK_KEYBOARD_H
 #include "quantum.h"
 
-#include "utils/functions.h"
-#include "features/swipe_gesture.h"
-#include "features/auto_click_layer.h"
+//#include "utils/functions.h"
+//#include "features/swipe_gesture.h"
+//#include "features/auto_click_layer.h"
 // #include "features/back_to_layer0_btn1.h"
 // #include "features/one_tap_multi_click.h"
-#include "features/macro_keys.h"
+//#include "features/macro_keys.h"
 
 // 容量オーバーのため不使用（VIAをOFFにすれば、使用可能）
 // #include "features/overrides.h"
-#include "features/combo.h"
+//#include "features/combo.h"
 
 // clang-format off
 const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
