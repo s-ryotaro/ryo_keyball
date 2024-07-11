@@ -49,7 +49,7 @@
 
 //#include "utils/functions.h"
 //#include "features/swipe_gesture.h"
-//#include "features/auto_click_layer.h"
+#include "features/auto_click_layer.h"
 // #include "features/back_to_layer0_btn1.h"
 // #include "features/one_tap_multi_click.h"
 //#include "features/macro_keys.h"
@@ -71,7 +71,7 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_universal(
     _______  ,HYPR(KC_4),SGUI(KC_4),SGUI(KC_3),SGUI(KC_5),                           G(KC_LBRC),G(KC_RBRC), KC_UP    , KC_RIGHT , KC_TAB   ,
     _______  ,S(KC_LEFT), C(KC_J)  , _______  , _______  ,                            KC_LEFT  , KC_DOWN  , C(KC_K)  ,S(KC_RIGHT), C(KC_Y) ,
-    C(KC_LEFT), _______ , _______  , _______  ,SFT_T_G_KC_A,                          G(KC_Z)  , G(KC_C)  , G(KC_X)  , G(KC_V)  ,G(KC_SLASH),
+    C(KC_LEFT), _______ , _______  , _______  , _______  ,                            G(KC_Z)  , G(KC_C)  , G(KC_X)  , G(KC_V)  ,G(KC_SLASH),
     _______ , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______
   ),
 
