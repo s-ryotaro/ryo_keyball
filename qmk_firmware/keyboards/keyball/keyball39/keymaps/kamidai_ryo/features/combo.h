@@ -20,7 +20,7 @@ enum combos {
 // const uint16_t PROGMEM combo_layer_3[] = {KC_D, KC_S, COMBO_END};
 // const uint16_t PROGMEM combo_layer_3[] = {KC_S, KC_A, COMBO_END};
 
-const uint16_t combo_esc+w→tab[] = {KC_ESC, KC_W,  COMBO_END};
+const uint16_t CMB_esc_X_w_TO_tab[] = {KC_ESC, KC_W,  COMBO_END};
 
 combo_t key_combos[] = {
     // [COMBO_F14] = COMBO(f14_combo, KC_F14),
@@ -29,6 +29,6 @@ combo_t key_combos[] = {
     // COMBO(combo_layer_2, MO(3)),
     // COMBO(combo_layer_3, MO(2)),
 
-    COMBO(combo_esc+w→tab, KC_TAB),
+    COMBO(CMB_esc_X_w_TO_tab, KC_TAB),
     
 };
