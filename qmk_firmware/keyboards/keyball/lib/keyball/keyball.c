@@ -184,7 +184,7 @@ static void adjust_mouse_speed(keyball_motion_t *m){
     speed_multiplier = 2.8;
   } else if(movement_size > 5){
     speed_multiplier = 2.5;
-　} else if(movement_size > 3){
+  } else if(movement_size > 3){
     speed_multiplier = 2.2;
 
 
