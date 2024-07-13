@@ -20,7 +20,8 @@ enum custom_keycodes {
   SFT_T_G_KC_A,                                 // (0x5DB2):
   SFT_T_S_KC_SCOLON,                            // (0x5DB3):
   
-  COMBO_BRC,                                    // (0x5DB5):
+  CMB_esc_X_w_TO_tab
+  //COMBO_BRC,                                    // (0x5DB5):
   //COMBO_select_BRC,                             // (0x5DB5):
   //COMBO_S9_S0,                                  // (0x5DB5):
   //COMBO_select_S9_S0,                           // (0x5DB5):
@@ -74,6 +75,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return true;
     }
 
+
+
+  // コンボ
+    case CMB_esc_X_w_TO_tab:
+  
+      if (record->event.pressed) {
+        if (keycode == CMB_esc_X_w_TO_tab) {
+          tap_code(KC_ESC);  // ESCAPEを送信
+        }      
+      return false;
     /*
       // コンボ
     case COMBO_BRC:
