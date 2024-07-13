@@ -172,21 +172,23 @@ static void adjust_mouse_speed(keyball_motion_t *m){
 
   float speed_multiplier = 1.0; //速度の倍率
   if (movement_size > 30) {
-    speed_multiplier = 7.0;//5
+    speed_multiplier = 9.0;//5
   } else if(movement_size > 20){
-    speed_multiplier = 4.5;//4.5
+    speed_multiplier = 8.0;//4.5
   } else if(movement_size > 15){
-    speed_multiplier = 4.0;//4
+    speed_multiplier = 7.0;//4
   } else if(movement_size > 10){
-    speed_multiplier = 2.5;//3
+    speed_multiplier = 6.0;//2.5
   } else if(movement_size > 7){
-    speed_multiplier = 1.8;//2.5
+    speed_multiplier = 4.0;//1.8
   } else if(movement_size > 5){
     speed_multiplier = 1.5;//2
+
+    /*
   } else if(movement_size > 2){
     speed_multiplier = 1.0;//
      
-     /*
+     
   } else if(movement_size > 3){
     speed_multiplier = 1.8;
   } else if(movement_size > 2){
