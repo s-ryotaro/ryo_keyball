@@ -82,7 +82,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   
       if (record->event.pressed) {
         if (keycode == CMB_esc_X_w_TO_tab) {
-          tap_code(KC_ESC);  // ESCAPEを送信
+          tap_code(KC_ESCAPE);  // ESCAPEを送信
         }      
       return false;
     /*
