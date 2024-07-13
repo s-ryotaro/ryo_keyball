@@ -33,5 +33,5 @@ combo_t key_combos[] = {
     // COMBO(combo_layer_3, MO(2)),
 
     COMBO(combo_1, CMB_ESCAPE),
-    COMBO(test_combo1, KC_ESCAPE),
+    COMBO(test_combo1, KC_TAB),
 };
