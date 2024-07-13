@@ -78,6 +78,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
   // コンボ
+  /*
     case CMB_ESCAPE:
   
       if (record->event.pressed) {
@@ -85,7 +86,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           tap_code(KC_ESCAPE);  // ESCAPEを送信
         }      
       return false;
-    /*
+    
       // コンボ
     case COMBO_BRC:
   
