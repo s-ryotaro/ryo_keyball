@@ -23,7 +23,7 @@ enum combos {
 // const uint16_t PROGMEM combo_layer_3[] = {KC_S, KC_A, COMBO_END};
 
 const uint16_t PROGMEM combo_0[] = {KC_ESCAPE, KC_W,  COMBO_END};
-const uint16_t PROGMEM test_combo1[] = {KC_A, KC_B, COMBO_END};
+const uint16_t PROGMEM test_combo1[] = {KC_W, KC_E, COMBO_END};
 
 combo_t key_combos[] = {
     // [COMBO_F14] = COMBO(f14_combo, KC_F14),
