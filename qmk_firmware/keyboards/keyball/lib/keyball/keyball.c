@@ -171,15 +171,23 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
   float speed_multiplier = 1.0; //速度の倍率
-  if (movement_size > 40) {
+  if (movement_size > 40) {       //コア
     speed_multiplier = 2.0;//5
 
+  } else if(movement_size > 35){   
+    speed_multiplier = 1.75;//
+
+  } else if(movement_size > 30){   
+    speed_multiplier = 1.50;//
+
+  } else if(movement_size > 25){   
+    speed_multiplier = 1.25;//
   
 
   } else if(movement_size > 20){   //コア
     speed_multiplier = 1.00;//
 
-  } else if(movement_size > 17){   //コア
+  } else if(movement_size > 17){   
     speed_multiplier = 0.75;//  
 
   } else if(movement_size > 15){   //コア
@@ -191,7 +199,7 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   } else if(movement_size > 10){   //コア
     speed_multiplier = 0.30;//2
 
-  } else if(movement_size > 1){   
+  } else if(movement_size > 1){   //コア
     speed_multiplier = 0.15;//2
 
 
