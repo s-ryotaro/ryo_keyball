@@ -54,8 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_MS_BTN2:
     case KC_MS_BTN3:
     case KC_MS_BTN4:
-    case KC_MS_BTN5:
-    case KC_DOUBLE_CLICK_BTN1: {
+    case KC_MS_BTN5: {
       if (click_layer && get_highest_layer(layer_state) == click_layer) {
         if (record->event.pressed) {
           // キーダウン時: 状態をCLICKINGに設定
