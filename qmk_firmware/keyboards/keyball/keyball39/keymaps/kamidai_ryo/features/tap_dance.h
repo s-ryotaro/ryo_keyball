@@ -3,14 +3,16 @@
 
 // Tap Dance declarations
 enum {
-  TD_HOGEHOGE = 0,
-  TD_PIYOPIYO
+  TD_GUI_D,
+  TD_GUI_E,
+  TD_GUI_A
 };
 
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_HOGEHOGE] = ACTION_TAP_DANCE_DOUBLE(KC_A, KC_B),
-    [TD_PIYOPIYO] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_D)
+    [TD_GUI_E] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_E),
+    [TD_GUI_D] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_D),
+    [TD_GUI_A] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_A)
 };
 
 

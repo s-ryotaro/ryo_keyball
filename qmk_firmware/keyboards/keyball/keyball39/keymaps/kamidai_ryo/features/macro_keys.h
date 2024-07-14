@@ -54,7 +54,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_MS_BTN2:
     case KC_MS_BTN3:
     case KC_MS_BTN4:
-    case KC_MS_BTN5: {
+    case KC_MS_BTN5:
+    case KC_DOUBLE_CLICK_BTN1: {
       if (click_layer && get_highest_layer(layer_state) == click_layer) {
         if (record->event.pressed) {
           // キーダウン時: 状態をCLICKINGに設定
@@ -74,6 +75,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return true;
     }
 
+    // 【KC_DOUBLE_CLICK_BTN1】挿入ここから240714
+
+    case KC_DOUBLE_CLICK_BTN1:
+    case KC_TRIPLE_CLICK_BTN1: {
+      if (record->event.pressed) {
+        // キーダウン時
+        // `KC_DOUBLE_CLICK_BTN1`の場合
+        if (keycode == KC_DOUBLE_CLICK_BTN1) {
+          double_click_mouse_button1();  // マウスボタン1をダブルクリック
+        }
+        // `KC_TRIPLE_CLICK_BTN1`の場合
+        if (keycode == KC_TRIPLE_CLICK_BTN1) {
+          triple_click_mouse_button1();  // マウスボタン1をトリプルクリック
+        }
+      } else {
+        if (click_layer && get_highest_layer(layer_state) == click_layer) {
+          // キーアップ時: クリックレイヤーを有効にして、状態をCLICKEDに設定
+          enable_click_layer();
+          state = CLICKED;
+        }
+      }
+      return false;  // キーのデフォルトの動作をスキップする
+    }
+
+        // 挿入ここまで
 
 
   // コンボ
