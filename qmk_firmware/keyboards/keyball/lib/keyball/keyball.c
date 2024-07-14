@@ -174,23 +174,25 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   if (movement_size > 40) {
     speed_multiplier = 2.0;//5
 
-  } else if(movement_size > 30){   //コア
-    speed_multiplier = 1.5;//4.5
+  
 
-  } else if(movement_size > 21){   //コア
-    speed_multiplier = 1.0;//
+  } else if(movement_size > 20){   //コア
+    speed_multiplier = 1.00;//
+
+  } else if(movement_size > 17){   //コア
+    speed_multiplier = 0.75;//  
 
   } else if(movement_size > 15){   //コア
-    speed_multiplier = 0.5;//2
+    speed_multiplier = 0.50;//2
 
   } else if(movement_size > 12){   
-    speed_multiplier = 0.25;//2
+    speed_multiplier = 0.35;//2
 
   } else if(movement_size > 10){   //コア
-    speed_multiplier = 0.29;//2
+    speed_multiplier = 0.30;//2
 
   } else if(movement_size > 1){   
-    speed_multiplier = 0.145;//2
+    speed_multiplier = 0.15;//2
 
 
     /*
