@@ -170,6 +170,24 @@ void pointing_device_driver_set_cpi(uint16_t cpi) {
 static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
+float speed_multiplier = 1.0; //速度の倍率
+  if (movement_size > 60) {
+    speed_multiplier = 3.0;
+  } else if(movement_size > 30){
+    speed_multiplier = 1.5;
+  } else if(movement_size > 5){
+    speed_multiplier = 1.0;
+  } else if(movement_size > 4){
+    speed_multiplier = 0.9;
+  } else if(movement_size > 3){
+    speed_multiplier = 0.7;
+  } else if(movement_size > 2){
+    speed_multiplier = 0.5;
+  } else if(movement_size > 1){
+    speed_multiplier = 0.2;
+  }
+
+    /*
   float speed_multiplier = 1.0; //速度の倍率
   if (movement_size > 80) {       //コア
     speed_multiplier = 1.5;//5
@@ -193,31 +211,6 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   } else if(movement_size > 1){   //コア
     speed_multiplier = 0.15;//2
 
-
-    /*
-  } else if(movement_size > 2){
-    speed_multiplier = 1.0;//
-     
-     
-  } else if(movement_size > 3){
-    speed_multiplier = 1.8;
-  } else if(movement_size > 2){
-    speed_multiplier = 1.5;
-   
-  if (movement_size < 45) {
-    speed_multiplier = 3.0;
-  } else if(movement_size < 30){
-    speed_multiplier = 2.0;
-  } else if(movement_size < 15){
-    speed_multiplier = 1.0;
-  } else if(movement_size < 14){
-    speed_multiplier = 0.1;
-  } else if(movement_size > 3){
-    speed_multiplier = 0.1;
-  } else if(movement_size > 2){
-    speed_multiplier = 0.5;
-  } else if(movement_size > 1){
-    speed_multiplier = 0.2;
     */
   }
     

@@ -8,6 +8,7 @@ EXTRAKEY_ENABLE = yes
 
 COMBO_ENABLE = yes
 
+TAP_DANCE_ENABLE = yes
 
 ### 使っていないもの
 ### 以下はメモリ不足のため、VIAをOFFにする必要がある
