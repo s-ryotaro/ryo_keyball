@@ -171,44 +171,57 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
   float speed_multiplier = 1.0; //速度の倍率
-  if (movement_size > 60) {
-    speed_multiplier = 3.0;//5
-  } else if(movement_size > 40){
-    speed_multiplier = 2.0;//4.5
-  } else if(movement_size > 21){
-    speed_multiplier = 1.0;//
-  } else if(movement_size > 15){
-    speed_multiplier = 0.5;//2
-  } else if(movement_size <= 14){
-    speed_multiplier = 0.145;//2
-    cpi = 100; // マウススピードが14以下の場合、CPIを100に設定
-  } else {
-    cpi = 700; // それ以外の場合、CPIを初期設定の700に戻す
-  }
+  if (movement_size > 40) {
+    speed_multiplier = 2.0;//5
 
-  // 速度調整にCPIを適用
-  m->x = m->x * speed_multiplier * (cpi / 700.0);
-  m->y = m->y * speed_multiplier * (cpi / 700.0);
+  } else if(movement_size > 30){   //コア
+    speed_multiplier = 1.5;//4.5
+
+  } else if(movement_size > 21){   //コア
+    speed_multiplier = 1.0;//
+
+  } else if(movement_size > 15){   //コア
+    speed_multiplier = 0.5;//2
+
+  } else if(movement_size > 12){   
+    speed_multiplier = 0.25;//2
+
+  } else if(movement_size > 10){   //コア
+    speed_multiplier = 0.29;//2
+
+  } else if(movement_size > 1){   
+    speed_multiplier = 0.145;//2
 
 
     /*
-  float speed_multiplier = 1.0; //速度の倍率
-  if (movement_size > 60) {
-    speed_multiplier = 3.0;//5
-  } else if(movement_size > 40){
-    speed_multiplier = 2.0;//4.5
-  } else if(movement_size > 21){
+  } else if(movement_size > 2){
     speed_multiplier = 1.0;//
-  } else if(movement_size > 15){
-    speed_multiplier = 0.5;//2
+     
+     
+  } else if(movement_size > 3){
+    speed_multiplier = 1.8;
+  } else if(movement_size > 2){
+    speed_multiplier = 1.5;
+   
+  if (movement_size < 45) {
+    speed_multiplier = 3.0;
+  } else if(movement_size < 30){
+    speed_multiplier = 2.0;
+  } else if(movement_size < 15){
+    speed_multiplier = 1.0;
   } else if(movement_size < 14){
-    speed_multiplier = 0.145;//2
-      }
+    speed_multiplier = 0.1;
+  } else if(movement_size > 3){
+    speed_multiplier = 0.1;
+  } else if(movement_size > 2){
+    speed_multiplier = 0.5;
+  } else if(movement_size > 1){
+    speed_multiplier = 0.2;
+    */
+  }
     
   m->x = clip2int8((int16_t)(m->x * speed_multiplier));
   m->y = clip2int8((int16_t)(m->y * speed_multiplier));
-    */
-
 }
 
 __attribute__((weak)) void keyball_on_apply_motion_to_mouse_move(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
