@@ -3,6 +3,8 @@
  * 参考文献：
  * - リポジトリ：
  *   https://github.com/kamiichi99/keyball/tree/main/qmk_firmware/keyboards/keyball/keyball39/keymaps/kamidai
+ *  QMK WEB
+ * https://docs.qmk.fm/keycodes_basic
 
  * コード表：
  * - 公式ファームウェアのキーコード：
@@ -43,16 +45,16 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
   [0] = LAYOUT_universal(
-    LT(3,KC_ESCAPE), KC_W     , TD(TD_GUI_E)     , KC_R     , KC_T     ,                         KC_Y     , KC_U     , KC_I     , KC_O     , CTL_T(KC_P)     ,
-    TD(TD_CTL_A)     , KC_S     , TD(TD_GUI_D)     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_DOT   ,
-    KC_Z     , KC_X     , KC_C     ,KC_V      ,LT(2,KC_B),                            KC_N, KC_M     ,KC_LEFT_CURLY_BRACE,KC_RIGHT_CURLY_BRACE	, KC_COMMA ,
+    KC_ESC, KC_W     , TD(TD_GUI_E)     , KC_R     , KC_T     ,                         KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
+    TD(TD_CTL_A)     , KC_S     , TD(TD_GUI_D),LT(3,KC_F)   , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_DOT   ,
+    TD(TD_CTL_Z)     , TD(TD_CTL_X),TD(TD_CTL_C),TD(TD_CTL_V),LT(2,KC_B),                            KC_N, KC_M     ,KC_LEFT_CURLY_BRACE,KC_RIGHT_CURLY_BRACE	,CTL_T(KC_COMMA) ,
     KC_LCTL  , _______  , _______  , _______  ,LT(1,KC_ENT),KC_BSPC,               KC_LNG1,KC_SPC,KC_LNG2,KC_RALT,KC_RGUI,KC_LSFT
   ),
 
   [1] = LAYOUT_universal(
     KC_Q     ,KC_7      ,KC_8      ,KC_9      ,KC_F2     ,                           KC_DEL    ,KC_DEL    , KC_UP    ,KC_HOME    ,KC_END,
     _______  ,KC_4      ,KC_5      ,KC_6      ,KC_F4     ,                            KC_ASTR  ,KC_LEFT   , KC_DOWN  ,KC_RIGHT  ,KC_PAGE_UP ,
-    KC_0     ,KC_1      ,KC_2      ,KC_3      , _______  ,                            KC_PLUS  ,KC_MINUS  ,KC_EQUAL  , _______  ,KC_PAGE_DOWN,
+    KC_0     ,KC_1      ,KC_2      ,KC_3      , _______  ,                            KC_PLUS  ,TD(TD_CTD_under_berTL_A),KC_EQUAL  , _______  ,CTL_T(KC_PAGE_DOWN),
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______
   ),
 
@@ -86,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [6] = LAYOUT_universal(
     _______  ,KC_MS_BTN5,KC_MS_BTN4, _______  , _______  ,                            _______  , _______  ,KC_MS_BTN4,KC_MS_BTN5, _______  ,
-    _______  ,KC_MS_BTN2,KC_MS_BTN3,KC_DOUBLE_CLICK_BTN1 ,KC_MS_BTN1,                 _______  ,KC_MS_BTN1,KC_MS_BTN3,KC_MS_BTN2, _______  ,
+    KC_MS_BTN3  ,KC_MS_BTN2,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN1, _______ ,                _______  ,KC_MS_BTN1,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN2,KC_MS_BTN3 ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
