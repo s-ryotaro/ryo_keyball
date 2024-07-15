@@ -26,7 +26,8 @@ const uint16_t PROGMEM combo_0[] = {KC_ESCAPE, KC_W,  COMBO_END};
 const uint16_t PROGMEM combo_1[] = {KC_R, KC_T, COMBO_END};//エクスプローラ消去、アプリ終了
 const uint16_t PROGMEM combo_2[] = {KC_J, KC_K, COMBO_END};//仮想ウィンド切り替え←
 const uint16_t PROGMEM combo_3[] = {KC_W, KC_E, COMBO_END};//仮想ウィンド切り替え→
-const uint16_t PROGMEM test_combo1[] = {KC_W, KC_E, COMBO_END};
+
+
 
 combo_t key_combos[] = {
     // [COMBO_F14] = COMBO(f14_combo, KC_F14),
