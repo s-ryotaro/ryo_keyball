@@ -10,9 +10,9 @@ enum {
 
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_GUI_E] = ACTION_TAP_DANCE_DOUBLE(KC_E,KC_LGUI(KC_E)),
-    [TD_GUI_D] = ACTION_TAP_DANCE_DOUBLE(KC_D,KC_LGUI(KC_D)),
-    [TD_GUI_A] = ACTION_TAP_DANCD_DOUBLE(KC_A,KC_LCTL(KC_A))
+    [TD_GUI_E] = ACTION_TAP_DANCE_DOUBLE(KC_E,LGUI(KC_E)),
+    [TD_GUI_D] = ACTION_TAP_DANCE_DOUBLE(KC_D,LGUI(KC_D)),
+    [TD_GUI_A] = ACTION_TAP_DANCD_DOUBLE(KC_A,LCTL(KC_A))
 };
 
 
