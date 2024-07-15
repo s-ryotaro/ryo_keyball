@@ -43,7 +43,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
   [0] = LAYOUT_universal(
-    LT(3,KC_ESCAPE), KC_W     , TD_GUI_E     , KC_R     , KC_T     ,                         KC_Y     , KC_U     , KC_I     , KC_O     , CTL_T(KC_P)     ,
+    LT(3,KC_ESCAPE), KC_W     , TD(TD_GUI_E)     , KC_R     , KC_T     ,                         KC_Y     , KC_U     , KC_I     , KC_O     , CTL_T(KC_P)     ,
     TD(TD_GUI_A)     , KC_S     , TD(TD_GUI_D)     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_DOT   ,
     KC_Z     , KC_X     , KC_C     ,KC_V      ,LT(2,KC_B),                            KC_N, KC_M     ,KC_LEFT_CURLY_BRACE,KC_RIGHT_CURLY_BRACE	, KC_COMMA ,
     KC_LCTL  , _______  , _______  , _______  ,LT(1,KC_ENT),KC_BSPC,               KC_LNG1,KC_SPC,KC_LNG2,KC_RALT,KC_RGUI,KC_LSFT
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [6] = LAYOUT_universal(
     _______  ,KC_MS_BTN5,KC_MS_BTN4, _______  , _______  ,                            _______  , _______  ,KC_MS_BTN4,KC_MS_BTN5, _______  ,
-    _______  ,KC_MS_BTN2,KC_MS_BTN3,KC_DOUBLE_CLICK_BTN1 ,KC_MS_BTN1,                            _______  ,KC_MS_BTN1,KC_MS_BTN3,KC_MS_BTN2, _______  ,
+    _______  ,KC_MS_BTN2,KC_MS_BTN3,KC_DOUBLE_CLICK_BTN1 ,KC_MS_BTN1,                 _______  ,KC_MS_BTN1,KC_MS_BTN3,KC_MS_BTN2, _______  ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
