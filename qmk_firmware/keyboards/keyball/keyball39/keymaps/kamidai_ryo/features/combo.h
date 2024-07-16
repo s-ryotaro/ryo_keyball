@@ -24,9 +24,12 @@ enum combos {
 
 const uint16_t PROGMEM combo_0[] = {KC_ESCAPE, KC_W,  COMBO_END};
 const uint16_t PROGMEM combo_1[] = {KC_R, KC_T, COMBO_END};//エクスプローラ消去、アプリ終了
-const uint16_t PROGMEM combo_2[] = {KC_J, KC_K, COMBO_END};//仮想ウィンド切り替え←
-const uint16_t PROGMEM combo_3[] = {KC_W, KC_E, COMBO_END};//仮想ウィンド切り替え→
 
+const uint16_t PROGMEM combo_2[] = {KC_U, KC_I, COMBO_END};//仮想ウィンド切り替え←
+const uint16_t PROGMEM combo_3[] = {KC_O, KC_P, COMBO_END};//仮想ウィンド切り替え→
+
+const uint16_t PROGMEM combo_4[] = {KC_J, KC_K, COMBO_END};//タブ切り替え←
+const uint16_t PROGMEM combo_5[] = {KC_L, KC_DOT, COMBO_END};//タブ切り替え→
 
 
 combo_t key_combos[] = {
@@ -38,7 +41,10 @@ combo_t key_combos[] = {
 
     COMBO(combo_0, KC_TAB),
     COMBO(combo_1, LALT(KC_F4)),//エクスプローラ消去、アプリ終了
+
     COMBO(combo_2, LCTL(LGUI(KC_RIGHT))),//仮想ウィンド切り替え→
     COMBO(combo_3, LCTL(LGUI(KC_LEFT))),//仮想ウィンド切り替え←
-
+    
+    COMBO(combo_4, KC_BTN4),//タブ切り替え←
+    COMBO(combo_5, KC_BTN4),//タブ切り替え→
 };

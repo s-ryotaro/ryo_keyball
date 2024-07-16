@@ -45,10 +45,10 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
   [0] = LAYOUT_universal(
-    KC_ESC, KC_W     , TD(TD_GUI_E)     , KC_R     , KC_T     ,                         KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    TD(TD_CTL_A)     , KC_S     , TD(TD_GUI_D),LT(3,KC_F)   , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_DOT   ,
-    TD(TD_CTL_Z)     , TD(TD_CTL_X),TD(TD_CTL_C),TD(TD_CTL_V),LT(2,KC_B),                            KC_N, KC_M     ,KC_LEFT_CURLY_BRACE,KC_RIGHT_CURLY_BRACE	,CTL_T(KC_COMMA) ,
-    KC_LCTL  , _______  , _______  , _______  ,LT(1,KC_ENT),KC_BSPC,               KC_LNG1,KC_SPC,KC_LNG2,KC_RALT,KC_RGUI,KC_LSFT
+    KC_ESC, KC_W     , TD(TD_GUI_E)     , KC_R     , KC_T     ,                                          KC_Y, KC_U     , KC_I     , KC_O     , KC_P     ,
+    TD(TD_CTL_A)     , LT(3,KC_S)     , TD(TD_GUI_D), KC_F   , KC_G     ,                                 KC_H, KC_J     , KC_K     , KC_L     , KC_DOT   ,
+    TD(TD_CTL_Z)     , TD(TD_CTL_X),TD(TD_CTL_C),TD(TD_CTL_V),LT(2,KC_B),                                KC_N, KC_M     ,KC_LEFT_CURLY_BRACE,KC_RIGHT_CURLY_BRACE	,CTL_T(KC_COMMA) ,
+    KC_LCTL  , _______  , _______  , _______  ,TD(TD_ENT_TO_Y),TD(TD_BS_TO_N),               LT(1,KC_LNG1),LT(2,KC_SPC),LT(3,KC_LNG2),KC_RALT,KC_RGUI,KC_LSFT
   ),
 
   [1] = LAYOUT_universal(
