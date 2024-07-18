@@ -171,12 +171,17 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
 
-  // ポインタの移動量を計算する非線形関数
-  float speed_multiplier = 0.001 * pow(movement_size, 2.5);
+    // Define the parameters
+    float alpha = 0.01;
+    float beta = 1.6;
+    float k = 0.8;
 
-  // ポインタの移動量に倍率をかける
-  m->x *= speed_multiplier;
-  m->y *= speed_multiplier;
+    // Calculate the speed multiplier using the provided formula
+    float speed_multiplier = alpha * pow((movement_size / k), beta);
+
+    // Apply the speed multiplier to the mouse motion
+    m->x = m->x * speed_multiplier;
+    m->y = m->y * speed_multiplier;
 
   //m->x = clip2int8((int16_t)(m->x * speed_multiplier));
   //m->y = clip2int8((int16_t)(m->y * speed_multiplier));
