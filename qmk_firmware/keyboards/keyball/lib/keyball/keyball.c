@@ -170,57 +170,16 @@ void pointing_device_driver_set_cpi(uint16_t cpi) {
 static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
-  float speed_multiplier = 1.0; //速度の倍率
-  if (movement_size > 60) {
-    speed_multiplier = 3.0;
-  } else if(movement_size > 30){
-    speed_multiplier = 1.5;
 
-  } else if(movement_size > 7){
-    speed_multiplier = 1.0;
+  // ポインタの移動量を計算する非線形関数
+  float speed_multiplier = 0.5 * pow(movement_size, 1.5);
 
-  } else if(movement_size > 5){
-    speed_multiplier = 0.5;//0.9
+  // ポインタの移動量に倍率をかける
+  m->x *= speed_multiplier;
+  m->y *= speed_multiplier;
 
-  } else if(movement_size > 4){
-    speed_multiplier = 0.4;//0.7
-
-  } else if(movement_size > 3){
-    speed_multiplier = 0.3;//0.5
-
-  } else if(movement_size > 2){
-    speed_multiplier = 0.15;//0.2
-  }
-
-    /*
-  float speed_multiplier = 1.0; //速度の倍率
-  if (movement_size > 80) {       //コア
-    speed_multiplier = 1.5;//5
-
-
-  } else if(movement_size > 20){   //コア
-    speed_multiplier = 1.00;//
-
-  } else if(movement_size > 17){   
-    speed_multiplier = 0.75;//  
-
-  } else if(movement_size > 15){   //コア
-    speed_multiplier = 0.50;//2
-
-  } else if(movement_size > 12){   
-    speed_multiplier = 0.35;//2
-
-  } else if(movement_size > 10){   //コア
-    speed_multiplier = 0.30;//2
-
-  } else if(movement_size > 1){   //コア
-    speed_multiplier = 0.15;//2
-  }
-    */
-  
-    
-  m->x = clip2int8((int16_t)(m->x * speed_multiplier));
-  m->y = clip2int8((int16_t)(m->y * speed_multiplier));
+  //m->x = clip2int8((int16_t)(m->x * speed_multiplier));
+  //m->y = clip2int8((int16_t)(m->y * speed_multiplier));
 }
 
 __attribute__((weak)) void keyball_on_apply_motion_to_mouse_move(keyball_motion_t *m, report_mouse_t *r, bool is_left) {

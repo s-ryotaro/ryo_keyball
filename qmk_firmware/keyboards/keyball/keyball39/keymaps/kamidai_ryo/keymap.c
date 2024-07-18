@@ -37,8 +37,15 @@
 
 // 容量オーバーのため不使用（VIAをOFFにすれば、使用可能）
 // #include "features/overrides.h"
-#include "features/combo.h"
+#include "featurALT_LEFT es/combo.h"
 #include "features/tap_dance.h"
+
+
+
+#define ALT_LEFT (LALT(KC_LEFT))// ALT + Left Arrow
+#define ALT_RIGHT (LALT(KC_RIGHT))// ALT + Right Arrow
+#define ALT_UP (LALT(KC_UP))// ALT + Up Arrow
+#define ALT_DOWN (LALT(KC_DOWN))// ALT + Down Arrow
 
 //
 // clang-format off
@@ -54,13 +61,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_universal(
     KC_Q     ,KC_7      ,KC_8      ,KC_9      ,KC_F2     ,                           KC_DEL    ,KC_DEL    , KC_UP    ,KC_HOME    ,KC_END,
     _______  ,KC_4      ,KC_5      ,KC_6      ,KC_F4     ,                            KC_ASTR  ,KC_LEFT   , KC_DOWN  ,KC_RIGHT  ,KC_PAGE_UP ,
-    KC_0     ,KC_1      ,KC_2      ,KC_3      , _______  ,                            KC_PLUS  ,TD(TD_MINUS_TO_UNDUNDER),KC_EQUAL  , _______  ,CTL_T(KC_PAGE_DOWN),
+    KC_0     ,KC_1      ,KC_2      ,KC_3      ,KC_PDOT   ,                            KC_PLUS  ,TD(TD_MINUS_TO_UNDUNDER),KC_EQUAL  , _______  ,CTL_T(KC_PAGE_DOWN),
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______
   ),
 
   [2] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , ALT_UP   , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , ALT_LEFT , _______  ,ALT_RIGHT , _______  ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
@@ -88,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [6] = LAYOUT_universal(
     _______  ,KC_MS_BTN5,KC_MS_BTN4, _______  , _______  ,                            _______  , _______  ,KC_MS_BTN4,KC_MS_BTN5, _______  ,
-    KC_MS_BTN3  ,KC_MS_BTN2,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN1, _______ ,                _______  ,KC_MS_BTN1,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN2,KC_MS_BTN3 ,
+    KC_MS_BTN3, _______ ,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN1,KC_MS_BTN2,                KC_MS_BTN2 ,KC_MS_BTN1,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN2,KC_MS_BTN3 ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),

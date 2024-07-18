@@ -42,8 +42,8 @@ combo_t key_combos[] = {
     COMBO(combo_0, KC_TAB),
     COMBO(combo_1, LALT(KC_F4)),//エクスプローラ消去、アプリ終了
 
-    COMBO(combo_2, LCTL(LGUI(KC_RIGHT))),//仮想ウィンド切り替え→
-    COMBO(combo_3, LCTL(LGUI(KC_LEFT))),//仮想ウィンド切り替え←
+    COMBO(combo_2, LCTL(LGUI(KC_LEFT))),//仮想ウィンド切り替え←
+    COMBO(combo_3, LCTL(LGUI(KC_RIGHT))),//仮想ウィンド切り替え→
     
     COMBO(combo_4, KC_BTN4),//タブ切り替え←
     COMBO(combo_5, KC_BTN4),//タブ切り替え→
