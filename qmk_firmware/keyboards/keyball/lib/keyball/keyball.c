@@ -172,7 +172,7 @@ static void adjust_mouse_speed(keyball_motion_t *m){
 
 
   // ポインタの移動量を計算する非線形関数
-  float speed_multiplier = 0.5 * pow(movement_size, 1.5);
+  float speed_multiplier = 0.001 * pow(movement_size, 2.5);
 
   // ポインタの移動量に倍率をかける
   m->x *= speed_multiplier;
