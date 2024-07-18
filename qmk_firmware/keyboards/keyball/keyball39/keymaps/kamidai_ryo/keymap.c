@@ -37,7 +37,7 @@
 
 // 容量オーバーのため不使用（VIAをOFFにすれば、使用可能）
 // #include "features/overrides.h"
-#include "featurALT_LEFT es/combo.h"
+#include "features/combo.h"
 #include "features/tap_dance.h"
 
 
