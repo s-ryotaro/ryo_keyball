@@ -171,9 +171,9 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   int16_t movement_size = abs(m->x) + abs(m->y);
 
     // Define the parameters
-    float alpha = 0.004;
-    float beta = 1.7;
-    float k = 2;
+    float alpha = 0.01;
+    float beta = 1.5;
+    float k = 8;
 
     // Calculate the speed multiplier using the provided formula
     float speed_multiplier = alpha * pow((movement_size / k), beta);
