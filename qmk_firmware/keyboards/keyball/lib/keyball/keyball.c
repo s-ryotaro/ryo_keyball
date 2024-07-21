@@ -190,16 +190,6 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   m->y = clip2int8((int16_t)(m->y * y_multiplier));
 }
 
-// 8ビット整数の範囲にクリップする関数
-int8_t clip2int8(int16_t speed_value) {
-  if (speed_value < -128) {
-    return -128;
-  } else if (speed_value > 127) {
-    return 127;
-  }
-  return (int8_t)speed_value;
-}
-
 __attribute__((weak)) void keyball_on_apply_motion_to_mouse_move(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
   adjust_mouse_speed(m);
 #if KEYBALL_MODEL == 61 || KEYBALL_MODEL == 39 || KEYBALL_MODEL == 147 || KEYBALL_MODEL == 44
