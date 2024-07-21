@@ -166,24 +166,38 @@ void pointing_device_driver_set_cpi(uint16_t cpi) {
     keyball_set_cpi(cpi);
 }
 
-// speed controll
+// speed controll **********************************************
 static void adjust_mouse_speed(keyball_motion_t *m){
-  int16_t movement_size = abs(m->x) + abs(m->y);
+  
+  // movement_size に基づいて speed_multiplier を計算する関数
+  float speed_multiplier_corrected(int16_t speed_value) {
+    if (speed_value >= 31) {
+      return 1.5 * speed_value - 22.5; // 30 以上の倍率
+    } else if (speed_value >= 11) {
+      return speed_value - 7.5; // 直線の式
+    }
+    return 0.25 * speed_value; // 10 未満のときの速度倍率
+  }
 
-    // Define the parameters
-    float alpha = 0.01;
-    float beta = 1.5;
-    float k = 8;
+  // x_value に基づいて速度倍率を計算し、m->x を補正
+  int16_t x_value = abs(m->x);
+  float x_multiplier = speed_multiplier_corrected(x_value);
+  m->x = clip2int8((int16_t)(m->x * x_multiplier));
 
-    // Calculate the speed multiplier using the provided formula
-    float speed_multiplier = alpha * pow((movement_size / k), beta);
+  // y_value に基づいて速度倍率を計算し、m->y を補正
+  int16_t y_value = abs(m->y);
+  float y_multiplier = speed_multiplier_corrected(y_value);
+  m->y = clip2int8((int16_t)(m->y * y_multiplier));
+}
 
-    // Apply the speed multiplier to the mouse motion
-    m->x = m->x * speed_multiplier;
-    m->y = m->y * speed_multiplier;
-
-  //m->x = clip2int8((int16_t)(m->x * speed_multiplier));
-  //m->y = clip2int8((int16_t)(m->y * speed_multiplier));
+// 8ビット整数の範囲にクリップする関数
+int8_t clip2int8(int16_t speed_value) {
+  if (speed_value < -128) {
+    return -128;
+  } else if (speed_value > 127) {
+    return 127;
+  }
+  return (int8_t)speed_value;
 }
 
 __attribute__((weak)) void keyball_on_apply_motion_to_mouse_move(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
