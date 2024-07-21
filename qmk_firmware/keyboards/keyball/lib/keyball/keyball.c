@@ -182,12 +182,14 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   // x_value に基づいて速度倍率を計算し、m->x を補正
   int16_t x_value = abs(m->x);
   float x_multiplier = speed_multiplier_corrected(x_value);
-  m->x = clip2int8((int16_t)(m->x * x_multiplier));
+  m->x = clip2int8((int16_t)(x_multiplier));//clip2int8にx_multiplierをそのまま渡す
+  //m->x = clip2int8((int16_t)(m->x * x_multiplier));
 
   // y_value に基づいて速度倍率を計算し、m->y を補正
   int16_t y_value = abs(m->y);
   float y_multiplier = speed_multiplier_corrected(y_value);
-  m->y = clip2int8((int16_t)(m->y * y_multiplier));
+  m->y = clip2int8((int16_t)(y_multiplier));
+  //m->y = clip2int8((int16_t)(m->y * y_multiplier));
 }
 
 __attribute__((weak)) void keyball_on_apply_motion_to_mouse_move(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
