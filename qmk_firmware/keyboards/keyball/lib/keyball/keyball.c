@@ -171,9 +171,7 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   
   // movement_size に基づいて speed_multiplier を計算する関数
   float speed_multiplier_corrected(int16_t speed_value) {
-    if (speed_value >= 31) {
-      return 1.5 * speed_value - 22.5; // 30 以上の倍率
-    } else if (speed_value >= 11) {
+    if (speed_value >= 11) {
       return speed_value - 7.5; // 直線の式
     }
     return 0.25 * speed_value; // 10 未満のときの速度倍率
