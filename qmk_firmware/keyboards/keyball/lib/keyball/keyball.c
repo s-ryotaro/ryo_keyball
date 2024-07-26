@@ -263,11 +263,11 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
     }
 #endif
 
-// macOS でスクロール方向反転
-if (detected_host_os() == OS_IOS) {
-  r->h = -r->h;
-  r->v = -r->v;
-}
+    // macOS でスクロール方向反転
+    if (detected_host_os() == OS_IOS) {
+      r->h = -r->h;
+      r->v = -r->v;
+    }
 
     /* toxa_O氏開発　https://qiita.com/toxaO/items/a46d04a476d17975dee1
     // windowsOSでスクロール方向反転

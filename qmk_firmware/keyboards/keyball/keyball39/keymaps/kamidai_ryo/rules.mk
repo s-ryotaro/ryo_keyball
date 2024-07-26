@@ -12,6 +12,8 @@ TAP_DANCE_ENABLE = yes
 
 OS_DETECTION_ENABLE = yes
 
+MACRO_ENABLE = yes
+
 ### 使っていないもの
 ### 以下はメモリ不足のため、VIAをOFFにする必要がある
 # KEY_OVERRIDE_ENABLE = yes
