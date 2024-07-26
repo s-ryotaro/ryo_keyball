@@ -264,7 +264,7 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 #endif
 
 // macOS でスクロール方向反転
-if (detected_host_os() == OS_MACOS) {
+if (detected_host_os() == OS_IOS) {
   r->h = -r->h;
   r->v = -r->v;
 }
