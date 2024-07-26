@@ -8,17 +8,16 @@
 
  * コード表：
  * - 公式ファームウェアのキーコード：
- *   ▼ ｷｰｺｰﾄﾞ
- *   KBC_RST  (0x5DA5): Keyball 設定のリセット
- *   KBC_SAVE (0x5DA6): 現在の Keyball 設定を EEPROM に保存します
- *   CPI_I100 (0x5DA7): CPI を 100 増加させます(最大:12000)
- *   CPI_D100 (0x5DA8): CPI を 100 減少させます(最小:100)
- *   CPI_I1K  (0x5DA9): CPI を 1000 増加させます(最大:12000)
- *   CPI_D1K  (0x5DAA): CPI を 1000 減少させます(最小:100)
- *   SCRL_TO  (0x5DAB): タップごとにスクロールモードの ON/OFF を切り替えます
- *   SCRL_MO  (0x5DAC): キーを押している間、スクロールモードになります
- *   SCRL_DVI (0x5DAD): スクロール除数を１つ上げます(max D7 = 1/128)← 最もスクロール遅い
- *   SCRL_DVD (0x5DAE): スクロール除数を１つ下げます(min D0 = 1/1)← 最もスクロール速い
+ * ▼remap ▼ ｷｰｺｰﾄﾞ
+ * KB1:   KBC_RST  (0x5DA5): Keyball 設定のリセット
+ * KB2:   KBC_SAVE (0x5DA6): 現在の Keyball 設定を EEPROM に保存します
+ * KB3:   CPI_D100 (0x5DA8): CPI を 100 減少させます(最小:100)
+ * KB4:   CPI_I1K  (0x5DA9): CPI を 1000 増加させます(最大:12000)
+ * KB5:   CPI_D1K  (0x5DAA): CPI を 1000 減少させます(最小:100)
+ * KB6:   SCRL_TO  (0x5DAB): タップごとにスクロールモードの ON/OFF を切り替えます
+ * KB7:   SCRL_MO  (0x5DAC): キーを押している間、スクロールモードになります
+ * KB8:   SCRL_DVI (0x5DAD): スクロール除数を１つ上げます(max D7 = 1/128)← 最もスクロール遅い
+ * KB9:   SCRL_DVD (0x5DAE): スクロール除数を１つ下げます(min D0 = 1/1)← 最もスクロール速い
  *
  * - オリジナルのキーコード：
  *   KC_BACK_TO_LAYER0_BTN1(0x5DAF): レイヤー0に遷移できるBTN1
@@ -30,7 +29,7 @@
 #include "quantum.h"
 
 #include "utils/functions.h"
-#include "features/swipe_gesture.h"
+//#include "features/swipe_gesture.h"
 #include "features/auto_click_layer.h"
 // #include "features/back_to_layer0_btn1.h"
 #include "features/one_tap_multi_click.h"
@@ -43,44 +42,56 @@
 
 
 
-#define ALT_LEFT (LALT(KC_LEFT))// ALT + Left Arrow
-#define ALT_RIGHT (LALT(KC_RIGHT))// ALT + Right Arrow
-#define ALT_UP (LALT(KC_UP))// ALT + Up Arrow
-#define ALT_DOWN (LALT(KC_DOWN))// ALT + Down Arrow
+#define GUI_LEFT (LGUI(KC_LEFT))// ALT + Left Arrow
+#define GUI_RIGHT (LGUI(KC_RIGHT))// ALT + Right Arrow
+#define GUI_UP (LGUI(KC_UP))// ALT + Up Arrow
+#define GUI_DOWN (LGUI(KC_DOWN))// ALT + Down Arrow
+
+#define CNT_TAB (LCNT(KC_TAB))// ブラウザのタブ切替え
+#define ALT_UP (ALT_T(KC_UP)) // 上の階層へ
+
+
 
 //
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
   [0] = LAYOUT_universal(
-    KC_ESC, KC_W     , TD(TD_GUI_E)     , KC_R     , KC_T     ,                                          KC_Y, KC_U     , KC_I     , KC_O     , KC_P     ,
-    TD(TD_CTL_A)     , LT(3,KC_S)     , TD(TD_GUI_D), KC_F   , KC_G     ,                                 KC_H, KC_J     , KC_K     , KC_L     , KC_DOT   ,
-    TD(TD_CTL_Z)     , TD(TD_CTL_X),TD(TD_CTL_C),TD(TD_CTL_V),LT(2,KC_B),                                KC_N, KC_M     ,KC_LEFT_CURLY_BRACE,KC_RIGHT_CURLY_BRACE	,CTL_T(KC_COMMA) ,
-    KC_LCTL  , _______  , _______  , _______  ,KC_ENT,KC_BSPC,               LT(1,KC_LNG1),LT(2,KC_SPC),LT(3,KC_LNG2),KC_RALT,KC_RGUI,KC_LSFT
+    KC_ESC       , KC_W         , TD(TD_GUI_E) , KC_R         , KC_T           ,                                           KC_Y  , KC_U                , KC_I                , KC_O                 , KC_P             ,
+    TD(TD_CTL_A) , LT(3,KC_S)   , TD(TD_GUI_D) , KC_F         , KC_G           ,                                           KC_H  , KC_J                , KC_K                , KC_L                 , KC_DOT           ,
+    TD(TD_CTL_Z) , TD(TD_CTL_X) , TD(TD_CTL_C) , TD(TD_CTL_V) , KC_B           ,                                           KC_N  , KC_M                , TD(TD_BRACKETS)     , TD(TD_KANA_SYMBOLS)	, SFT_T(KC_COMMA)  ,
+    KC_LCTL      , _______      , _______      , _______      , KC_ENT         , KC_BSPC ,          LT(1,KC_LNG1) , LT(2,KC_SPC) , LT(3,KC_LNG2)       , KC_RALT             , KC_RGUI              , KC_RCNTL                 
   ),
 
-  [1] = LAYOUT_universal(
-    KC_Q     ,KC_7      ,KC_8      ,KC_9      ,KC_F2     ,                           KC_DEL    ,KC_DEL    , KC_UP    ,KC_HOME    ,KC_END,
-    _______  ,KC_4      ,KC_5      ,KC_6      ,KC_F4     ,                            KC_ASTR  ,KC_LEFT   , KC_DOWN  ,KC_RIGHT  ,KC_PAGE_UP ,
-    KC_0     ,KC_1      ,KC_2      ,KC_3      ,KC_PDOT   ,                            KC_PLUS  ,TD(TD_MINUS_TO_UNDUNDER),KC_EQUAL  , _______  ,CTL_T(KC_PAGE_DOWN),
-    _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______
+  [1] = LAYOUT_universal(     //KC_F2    KC_F4
+    TD(TD_OTHER_Q_SYMBOLS_2) , KC_7     ,KC_8      ,KC_9      ,TD(TD_PLUS_MAINUS)     ,                                                        KC_DEL , KC_F2                    , KC_UP           , KC_HOME          , KC_END             ,
+    KC_DOT                   , KC_4     ,KC_5      ,KC_6      ,TD(TD_PLUS_MAINUS)     ,                                                       KC_ASTR , KC_LEFT                  , KC_DOWN         , KC_RIGH       T  , KC_PAGE_UP         ,
+    KC_0                     , KC_1     ,KC_2      ,KC_3      ,TD(TD_EQUAL_CARET)     ,                                        TD(TD_COLON_SEMICOLON) , TD(TD_MINUS_TO_UNDUNDER) , TD(TD_FUTOUGOU) , TD(TD_QUOTATION) , CTL_T(KC_PAGE_DOWN),
+    _______                  , _______  , _______  , _______  , _______               , _______ ,                   _______ ,           _______       , _______                  , _______         , _______          , _______
   ),
 
   [2] = LAYOUT_universal(
-    SCRL_MO  , _______  , _______  , _______  ,CPI_I100  ,                            _______  , _______  , ALT_UP   , _______  , _______  ,
-    SCRL_DVI  , _______  , _______  , _______  ,CPI_D100  ,                            _______  , ALT_LEFT , _______  ,ALT_RIGHT , _______  ,
-    SCRL_DVD  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
+    _______ , _______  , _______  , _______   , _______   ,                            _______  , CTL_SFT_TAB , GUI_UP   , CNT_TAB  , ALT_UP  ,
+    _______   , _______  , _______  , _______  , _______  ,                            _______  , GUI_LEFT    , GUI_DOWN , GUI_RIGHT , _______  ,
+    _______   , _______  , _______  , _______  , KC_INT4  ,                            _______  , _______     , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______   , _______  , _______  ,      _______  , _______  , _______     , _______  , _______  , _______  
   ),
 
   [3] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    SCRL_MO  , _______  , _______  , _______  ,CPI_I100  ,                            _______  , _______  , _______  , _______  , _______  ,
+    SCRL_DVI , _______  , _______  , _______  ,CPI_D100  ,                            _______  , _______  , _______  , _______  , _______  ,
+    SCRL_DVD , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
 
   [4] = LAYOUT_universal(
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
+  ),
+
+  [5] = LAYOUT_universal(
     _______  ,KC_MS_BTN5,KC_MS_BTN4, _______  , _______  ,                            _______  , _______  ,KC_MS_BTN4,KC_MS_BTN5, _______  ,
     KC_MS_BTN3, _______ ,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN1,KC_MS_BTN2,                KC_MS_BTN2 ,KC_MS_BTN1,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN2,KC_MS_BTN3 ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
@@ -93,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
   // レイヤーが1または3の場合、スクロールモードが有効になる
   //keyball_set_scroll_mode(get_highest_layer(state) == 1 || get_highest_layer(state) == 3);
-  keyball_set_scroll_mode(get_highest_layer(state) == 3);
+  keyball_set_scroll_mode(get_highest_layer(state) == 4);
 
   // レイヤーとLEDを連動させる
   return state;

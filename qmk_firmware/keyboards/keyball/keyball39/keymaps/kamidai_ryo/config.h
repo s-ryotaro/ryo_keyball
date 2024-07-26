@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define RGBLIGHT_EFFECT_TWINKLE
 //#endif
 
-#define COMBO_COUNT 2
+#define COMBO_COUNT 6
 #define COMBO_TERM 40 //デフォルトでは、コンボが認識されるまでのタイムアウトは 50 ミリ秒に設定されています。コンボが誤って失敗する、またはキーを同時に押すのが難しい場合は、この設定を変更できます
 
 #define KEYBALL_SCROLLSNAP_ENABLE 0  // scrollsnapをオフにする
@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAP_CODE_DELAY 5
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 
-#define KEYBALL_CPI_DEFAULT 700       // 光学センサーPMW3360DM の解像度 (CPI) の規定値
+#define KEYBALL_CPI_DEFAULT 1000       // 光学センサーPMW3360DM の解像度 (CPI) の規定値
 #define KEYBALL_SCROLL_DIV_DEFAULT 6  // スクロール速度の規定値
 
 // ファームウェアのサイズを削減

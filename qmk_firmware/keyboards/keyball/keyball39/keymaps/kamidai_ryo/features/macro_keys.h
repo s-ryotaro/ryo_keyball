@@ -14,12 +14,14 @@
  */
 
 enum custom_keycodes {
-  KC_BACK_TO_LAYER0_BTN1 = KEYBALL_SAFE_RANGE,  // (0x5DAF): レイヤー0に遷移できるBTN1
+  //KC_BACK_TO_LAYER0_BTN1 = KEYBALL_SAFE_RANGE,  // (0x5DAF): レイヤー0に遷移できるBTN1
   KC_DOUBLE_CLICK_BTN1,                         // (0x5DB0): 1タップでダブルクリックできるBTN1
-  KC_TRIPLE_CLICK_BTN1,                         // (0x5DB1): 1タップでトリプルクリックできるBTN1
+  //KC_TRIPLE_CLICK_BTN1,                         // (0x5DB1): 1タップでトリプルクリックできるBTN1
   SFT_T_G_KC_A,                                 // (0x5DB2):
   SFT_T_S_KC_SCOLON,                            // (0x5DB3):
   
+  KC_GS_UP, //ウィンドウを縦方向に最大化
+
    //COMBO_BRC,                                    // (0x5DB5):
   //COMBO_select_BRC,                             // (0x5DB5):
   //COMBO_S9_S0,                                  // (0x5DB5):
@@ -100,6 +102,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         // 挿入ここまで
 
+
+    // KC_GS_UP(ウィンドウを縦方向に最大化)240726追加
+    switch (keycode) {
+        case KC_GS_UP:
+            if (record->event.pressed) {
+                // キーが押された時
+                register_code(KC_LGUI);
+                register_code(KC_LSFT);
+                register_code(KC_UP);
+            } else {
+                // キーが離された時
+                unregister_code(KC_UP);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LGUI);
+            }
+            return false; // 他のキーコードの処理を停止
+    }
+    return true; // 他のキーコードの処理を続行
+    // KC_GS_UP　ここまで
+
+    
 
   // コンボ
   /*
