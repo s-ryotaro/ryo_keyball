@@ -50,6 +50,9 @@
 #define CNT_TAB (LCNT(KC_TAB))// ブラウザのタブ切替え
 #define ALT_UP (ALT_T(KC_UP)) // 上の階層へ
 
+// どこでも良いので以下を記載
+//https://qiita.com/toxaO/items/dc9ead660a6c4e8075c6
+#define KEYBALL_SCROLL_INV 1
 
 
 //

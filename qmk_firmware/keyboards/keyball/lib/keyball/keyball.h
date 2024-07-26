@@ -36,6 +36,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define KEYBALL_SCROLLBALL_INHIVITOR 50
 #endif
 
+//keyballに雑にスクロール反転機能を搭載した 
+//https://qiita.com/toxaO/items/dc9ead660a6c4e8075c6
+#ifndef KEYBALL_SCROLL_INV
+#    define KEYBALL_SCROLL_INV 0
+#endif
+
 /// To disable scroll snap feature, define 0 in your config.h
 #ifndef KEYBALL_SCROLLSNAP_ENABLE
 #    define KEYBALL_SCROLLSNAP_ENABLE 2
