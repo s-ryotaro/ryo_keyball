@@ -88,7 +88,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
       case CLICKING:
         // 状態が"クリック中"のときは何もしない
         break;
-
+      /*
       case SWIPE:
         click_timer = timer_read();  // タイマーをリセット
 
@@ -108,11 +108,13 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
       case SWIPING:
         // 状態が"スワイプ中"のときは何もしない
         break;
-
+      */
+     
       default:
         click_timer = timer_read();  // タイマーをリセット
         state = WAITING;
         mouse_movement = 0;  // マウスの動きを0にリセット
+        
     }
   } else {
     // マウスが動いていないとき、各状態ごとに以下のアクションに実行する
@@ -143,6 +145,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
         }
         break;
 
+      /*
       case SWIPE:
         //rgblight_sethsv(HSV_SPRINGGREEN);  // LEDをスプリング・グリーンに変更
         break;
@@ -157,6 +160,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
       default:
         mouse_movement = 0;  // マウスの動きを0にリセット
         state = NONE;
+      */
     }
   }
   mouse_report.x = current_x;  // 新しいマウスのX座標をマウスレポートにセット

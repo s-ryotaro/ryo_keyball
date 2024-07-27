@@ -103,7 +103,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // 挿入ここまで
 
 
-    // KC_GS_UP(ウィンドウを縦方向に最大化)240726追加
+    // KC_GS_UP(ウィンドウを縦方向に最大化) 240726追加
     switch (keycode) {
         case KC_GS_UP:
             if (record->event.pressed) {
@@ -119,7 +119,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false; // 他のキーコードの処理を停止
     }
-    return true; // 他のキーコードの処理を続行
+    //return true; // 他のキーコードの処理を続行
     // KC_GS_UP　ここまで
 
     
@@ -152,6 +152,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     */
 
+    /*
     // 以下スワイプジェスチャー
     // クリックすると state が SWIPE になり、離したら NONE になる
     case CMD_T(KC_SPACE):
@@ -173,6 +174,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return true;  // キーのデフォルトの動作を続行させる
       }
 
+      
       // スワイプが行われた場合、スワイプフラグをリセット
       if (is_swiped) {
         is_swiped = false;
@@ -184,7 +186,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return true;
       }
     }
-     
+     */ 
+
     // その他のキーコードの場合
     default:
       if (record->event.pressed) {
