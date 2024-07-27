@@ -40,7 +40,7 @@ void send_tap_code_with_left_arrow(uint16_t keycode) {
     tap_code(KC_LEFT);
 }
 
-void dance_brackets_finished(qk_tap_dance_state_t *state, void *user_data) {
+void dance_brackets_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
             // 「」
@@ -73,7 +73,7 @@ void dance_brackets_finished(qk_tap_dance_state_t *state, void *user_data) {
 //TD_BRACKETSの関数 ここまで
 
 //TD_KANA_SYMBOLSの関数*******************************
-void dance_kana_symbols_finished(qk_tap_dance_state_t *state, void *user_data) {
+void dance_kana_symbols_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
             tap_code16(KC_QUES);  // "？"
@@ -90,7 +90,7 @@ void dance_kana_symbols_finished(qk_tap_dance_state_t *state, void *user_data) {
 //TD_ TD_SYMBOLSの関数　ここまで
 
 //TD_OTHER_SYMBOLSの関数*******************************
-void dance_other_symbols_finished(qk_tap_dance_state_t *state, void *user_data) {
+void dance_other_symbols_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
             tap_code16(KC_AT);    // "@"
@@ -114,7 +114,7 @@ void dance_other_symbols_finished(qk_tap_dance_state_t *state, void *user_data) 
 
 
 //TD_TD_OTHER_SYMBOLS_2の関数*******************************
-void dance_other_Q_symbols_2_finished(qk_tap_dance_state_t *state, void *user_data) {
+void dance_other_Q_symbols_2_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:   // 1回タップで（Q）
             tap_code(KC_Q);
@@ -160,7 +160,7 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_BRACKETS] = ACTION_TAP_DANCE_FN(dance_brackets_finished),
     [TD_KANA_SYMBOLS] = ACTION_TAP_DANCE_FN(dance_kana_symbols_finished),
     [TD_OTHER_SYMBOLS] = ACTION_TAP_DANCE_FN(dance_other_symbols_finished),
-    [TD_OTHER_Q_SYMBOLS_2] = ACTION_TAP_DANCE_FN(dance_other_symbols_2_finished),
+    [TD_OTHER_Q_SYMBOLS_2] = ACTION_TAP_DANCE_FN(dance_other_Q_symbols_2_finished),
 
 };
 

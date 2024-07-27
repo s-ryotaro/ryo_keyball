@@ -27,8 +27,8 @@ enum ball_state {
   CLICKABLE,  // マウスレイヤー有効になりクリック入力が取れる
   CLICKING,   // クリック中
   CLICKED,    // クリック直後
-  SWIPE,      // スワイプモードが有効になりスワイプ入力が取れる
-  SWIPING     // スワイプ中
+  //SWIPE,      // スワイプモードが有効になりスワイプ入力が取れる
+  //SWIPING     // スワイプ中
 
 };
 
@@ -109,7 +109,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
         // 状態が"スワイプ中"のときは何もしない
         break;
       */
-     
+
       default:
         click_timer = timer_read();  // タイマーをリセット
         state = WAITING;
