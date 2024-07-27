@@ -55,7 +55,7 @@
 //https://qiita.com/toxaO/items/dc9ead660a6c4e8075c6
 //#define KEYBALL_SCROLL_INV 1
 // →　コンパイルエラーをGPT提案で回避「KEYBALL_SCROLL_INVの再定義を避ける」
-#ifndef KEYBALL_SCROLL_INV
+//#ifndef KEYBALL_SCROLL_INV
 
 //
 // clang-format off

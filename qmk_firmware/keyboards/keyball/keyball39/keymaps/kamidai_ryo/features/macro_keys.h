@@ -43,7 +43,8 @@ enum custom_keycodes {
 // マクロキーの処理を行う関数
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   //current_keycode = keycode;             // 押下されたキーコードを保存する
-  bool mod_pressed = (get_mods() != 0);  // 修飾キーが押されているかを判定（0でなければ修飾キーが押されている）
+  //bool mod_pressed = (get_mods() != 0);  // 修飾キーが押されているかを判定（0でなければ修飾キーが押されている）
+  //→　スワイプジェスチャーで使用されている？
 
   //static bool is_gui_active = false;　240710不要箇所削除に伴い不要
   //static bool is_ctrl_active = false;
