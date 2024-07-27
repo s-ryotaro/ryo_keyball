@@ -156,11 +156,11 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
           state = SWIPE;
         }
         break;
-
+      */
       default:
         mouse_movement = 0;  // マウスの動きを0にリセット
         state = NONE;
-      */
+      
     }
   }
   mouse_report.x = current_x;  // 新しいマウスのX座標をマウスレポートにセット

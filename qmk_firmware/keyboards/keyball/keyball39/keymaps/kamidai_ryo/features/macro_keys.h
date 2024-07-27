@@ -76,20 +76,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return true;
     }
 
-    // 【KC_DOUBLE_CLICK_BTN1】挿入ここから240714
-
-    case KC_DOUBLE_CLICK_BTN1:
-    case KC_TRIPLE_CLICK_BTN1: {
+    // 【KC_DOUBLE_CLICK_BTN1】挿入ここから240714  
+    case KC_DOUBLE_CLICK_BTN1: {
       if (record->event.pressed) {
         // キーダウン時
         // `KC_DOUBLE_CLICK_BTN1`の場合
         if (keycode == KC_DOUBLE_CLICK_BTN1) {
           double_click_mouse_button1();  // マウスボタン1をダブルクリック
         }
-        // `KC_TRIPLE_CLICK_BTN1`の場合
-        if (keycode == KC_TRIPLE_CLICK_BTN1) {
-          triple_click_mouse_button1();  // マウスボタン1をトリプルクリック
-        }
+        
       } else {
         if (click_layer && get_highest_layer(layer_state) == click_layer) {
           // キーアップ時: クリックレイヤーを有効にして、状態をCLICKEDに設定

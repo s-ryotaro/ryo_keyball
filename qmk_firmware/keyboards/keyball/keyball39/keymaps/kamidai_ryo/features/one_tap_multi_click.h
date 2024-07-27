@@ -80,9 +80,11 @@ void double_click_mouse_button1(void) {
   }
 }
 
-// マウスのボタン1をダブルクリックする関数
+/*
+// マウスのボタン1をトリプルクリックする関数
 void triple_click_mouse_button1(void) {
   for (int i = 0; i < 3; i++) {
     click_and_wait_mouse_button1(50);
   }
 }
+*/
