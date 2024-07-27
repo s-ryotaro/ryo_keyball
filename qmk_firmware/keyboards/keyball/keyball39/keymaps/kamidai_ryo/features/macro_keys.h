@@ -22,7 +22,7 @@ enum custom_keycodes {
   
   KC_GS_UP, //ウィンドウを縦方向に最大化
 
-   //COMBO_BRC,                                    // (0x5DB5):
+  //COMBO_BRC,                                    // (0x5DB5):
   //COMBO_select_BRC,                             // (0x5DB5):
   //COMBO_S9_S0,                                  // (0x5DB5):
   //COMBO_select_S9_S0,                           // (0x5DB5):
@@ -42,7 +42,7 @@ enum custom_keycodes {
 
 // マクロキーの処理を行う関数
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  current_keycode = keycode;             // 押下されたキーコードを保存する
+  //current_keycode = keycode;             // 押下されたキーコードを保存する
   bool mod_pressed = (get_mods() != 0);  // 修飾キーが押されているかを判定（0でなければ修飾キーが押されている）
 
   //static bool is_gui_active = false;　240710不要箇所削除に伴い不要
