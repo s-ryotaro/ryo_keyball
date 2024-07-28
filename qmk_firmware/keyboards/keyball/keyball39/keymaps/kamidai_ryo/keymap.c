@@ -56,7 +56,7 @@
 
 
 #define CTL_TAB (LCTL(KC_TAB))// ブラウザのタブ切替え→
-#define CTL_SFT_TAB (RCS_T(KC_TAB))// ブラウザのタブ切替え← 右修飾キー
+#define CTL_SFT_TAB (LCTL(LSFT(KC_TAB)))// ブラウザのタブ切替え← 右修飾キー
 #define ALT_UP (LALT(KC_UP)) // 上の階層へ
 
 // どこでも良いので以下を記載
