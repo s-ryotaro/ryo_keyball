@@ -39,7 +39,7 @@
 // #include "features/overrides.h"
 #include "features/combo.h"
 #include "features/tap_dance.h"
-#include "keymap_jp.h"
+#include "features/keymap_jp.h"
 
 
 #define GUI_LEFT (LGUI(KC_LEFT))// WIN + Left Arrow
