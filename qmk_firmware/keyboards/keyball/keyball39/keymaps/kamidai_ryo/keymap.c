@@ -42,10 +42,10 @@
 
 
 
-#define GUI_LEFT (LGUI(KC_LEFT))// ALT + Left Arrow
-#define GUI_RIGHT (LGUI(KC_RIGHT))// ALT + Right Arrow
-#define GUI_UP (LGUI(KC_UP))// ALT + Up Arrow
-#define GUI_DOWN (LGUI(KC_DOWN))// ALT + Down Arrow
+#define GUI_LEFT (LGUI(KC_LEFT))// WIN + Left Arrow
+#define GUI_RIGHT (LGUI(KC_RIGHT))// WIN + Right Arrow
+#define GUI_UP (LGUI(KC_UP))// WIN + Up Arrow
+#define GUI_DOWN (LGUI(KC_DOWN))// WIN + Down Arrow
 
 #define GUI_1 (LGUI(KC_1))
 #define GUI_2 (LGUI(KC_2))
@@ -57,7 +57,7 @@
 
 #define CTL_TAB (LCTL(KC_TAB))// ブラウザのタブ切替え→
 #define CTL_SFT_TAB (RCS_T(KC_TAB))// ブラウザのタブ切替え← 右修飾キー
-#define ALT_UP (KC_LALT(KC_UP)) // 上の階層へ
+#define ALT_UP (LALT(KC_UP)) // 上の階層へ
 
 // どこでも良いので以下を記載
 //https://qiita.com/toxaO/items/dc9ead660a6c4e8075c6
