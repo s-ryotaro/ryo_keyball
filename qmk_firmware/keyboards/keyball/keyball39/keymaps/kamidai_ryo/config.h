@@ -63,14 +63,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 NO_ACTION_ONESHOT
 
-uint16_t keycode_config(uint16_t keycode) {
-    return keycode;
-}
-
-uint8_t mod_config(uint8_t mod) {
-    return mod;
-}
-
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS
 #undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #undef ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
