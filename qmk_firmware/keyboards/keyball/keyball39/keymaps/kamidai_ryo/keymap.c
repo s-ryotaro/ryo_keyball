@@ -47,9 +47,17 @@
 #define GUI_UP (LGUI(KC_UP))// ALT + Up Arrow
 #define GUI_DOWN (LGUI(KC_DOWN))// ALT + Down Arrow
 
+#define GUI_1 (LGUI(KC_1))
+#define GUI_2 (LGUI(KC_2))
+#define GUI_3 (LGUI(KC_3))
+#define GUI_4 (LGUI(KC_4))
+#define GUI_5 (LGUI(KC_5))
+#define GUI_6 (LGUI(KC_6))
+
+
 #define CTL_TAB (LCTL(KC_TAB))// ブラウザのタブ切替え→
-#define CTL_SFT_TAB (C_S_T(KC_TAB))// ブラウザのタブ切替え←
-#define ALT_UP (ALT_T(KC_UP)) // 上の階層へ
+#define CTL_SFT_TAB (RCS_T(KC_TAB))// ブラウザのタブ切替え← 右修飾キー
+#define ALT_UP (KC_LALT(KC_UP)) // 上の階層へ
 
 // どこでも良いので以下を記載
 //https://qiita.com/toxaO/items/dc9ead660a6c4e8075c6
@@ -65,20 +73,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC       , KC_W         , TD(TD_GUI_E) , KC_R         , KC_T           ,                                           KC_Y  , KC_U                , KC_I                , KC_O                 , KC_P             ,
     TD(TD_CTL_A) , LT(4,KC_S)   , TD(TD_GUI_D) , KC_F         , KC_G           ,                                           KC_H  , KC_J                , KC_K                , KC_L                 , KC_DOT           ,
     TD(TD_CTL_Z) , TD(TD_CTL_X) , TD(TD_CTL_C) , TD(TD_CTL_V) , KC_B           ,                                           KC_N  , KC_M                , TD(TD_BRACKETS)     , TD(TD_KANA_SYMBOLS)	, SFT_T(KC_COMMA)  ,
-    KC_LCTL      , _______      , _______      , _______      , KC_ENT         , KC_BSPC ,          LT(1,KC_LNG1) , LT(2,KC_SPC) , LT(3,KC_LNG2)       , KC_RALT             , KC_RGUI              , KC_RCTL                 
+    KC_LCTL      , _______      , _______      , _______      , KC_ENT         , KC_BSPC ,          LT(2,KC_LNG1) , LT(1,KC_SPC) , LT(3,KC_LNG2)       , KC_RALT             , KC_RGUI              , KC_RCTL                 
   ),
 
-  [1] = LAYOUT_universal(     
-    TD(TD_OTHER_Q_SYMBOLS_2) , KC_7     ,KC_8      ,KC_9      ,TD(TD_PLUS_MAINUS)     ,                                                        KC_DEL , KC_F2                    , KC_UP           , KC_HOME          , KC_END             ,
-    KC_DOT                   , KC_4     ,KC_5      ,KC_6      ,TD(TD_PLUS_MAINUS)     ,                                                       KC_ASTR , KC_LEFT                  , KC_DOWN         , KC_RIGHT         , KC_PAGE_UP         ,
+  [1] = LAYOUT_universal(
+    TD(TD_OTHER_Q_SYMBOLS_2) , KC_7     ,KC_8      ,KC_9      ,TD(TD_MULTI_DIVID)     ,                                                        KC_DEL , KC_F2                    , KC_UP           , KC_HOME          , KC_END             ,
+    KC_DOT                   , KC_4     ,KC_5      ,KC_6      ,TD(TD_PLUS_MAINUS)     ,                                          TD(TD_OTHER_SYMBOLS) , KC_LEFT                  , KC_DOWN         , KC_RIGHT         , KC_PAGE_UP         ,
     KC_0                     , KC_1     ,KC_2      ,KC_3      ,TD(TD_EQUAL_CARET)     ,                                        TD(TD_COLON_SEMICOLON) , TD(TD_MINUS_TO_UNDUNDER) , TD(TD_FUTOUGOU) , TD(TD_QUOTATION) , CTL_T(KC_PAGE_DOWN),
     _______                  , _______  , _______  , _______  , _______               , _______ ,                   _______ ,           _______       , _______                  , _______         , _______          , _______
   ),
 
-  [2] = LAYOUT_universal(
+  [2] = LAYOUT_universal( 
     _______ , _______  , _______  , _______   , _______   ,                            _______  , CTL_SFT_TAB , GUI_UP   , CTL_TAB  , ALT_UP  ,
-    _______   , _______  , _______  , _______  , _______  ,                            _______  , GUI_LEFT    , GUI_DOWN , GUI_RIGHT , _______  ,
-    _______   , _______  , _______  , _______  , KC_INT4  ,                            _______  , _______     , _______  , _______  , _______  ,
+    _______   , GUI_4  , GUI_5    , GUI_6     , _______   ,                            _______  , GUI_LEFT    , GUI_DOWN , GUI_RIGHT , _______  ,
+    _______   , GUI_1  , GUI_2    , GUI_3     , KC_INT4   ,                            _______  , _______     , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______   , _______  , _______  ,      _______  , _______  , _______     , _______  , _______  , _______  
   ),
 
@@ -98,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [5] = LAYOUT_universal(
     _______  ,KC_MS_BTN5,KC_MS_BTN4, _______  , _______  ,                            _______  , _______  ,KC_MS_BTN4,KC_MS_BTN5, _______  ,
-    KC_MS_BTN3, _______ ,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN1,KC_MS_BTN2,                KC_MS_BTN2 ,KC_MS_BTN1,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN2,KC_MS_BTN3 ,
+    KC_MS_BTN3, _______ ,KC_DOUBLE_CLICK_BTN1 ,KC_MS_BTN1,KC_MS_BTN2,                KC_MS_BTN2 ,KC_MS_BTN1,KC_DOUBLE_CLICK_BTN1,KC_MS_BTN2,KC_MS_BTN3 ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
