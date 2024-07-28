@@ -2,18 +2,18 @@
 //https://docs.qmk.fm/features/tap_dance
 
    const uint16_t jp_us_list[][2] = {
-    { KC_ZKHK, KC_GRV },   // Zenkaku ↔︎ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
+    { KC_WBAK, KC_GRV },   // Zenkaku ↔︎ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
     { KC_CIRC, KC_EQL },   // ^
-    { KC_YEN, KC_INT3 },   // ¥
+    { KC_RETN, KC_INT3 },   // ¥
     { KC_AT, KC_LBRC },    // @
     { KC_LBRC, KC_RBRC },  // [
-    { KC_EISU, KC_CAPS },  // Eisū (英数)
+    { KC_EXSL, KC_CAPS },  // Eisū (英数)
     { KC_COLN, KC_QUOT },  // :
     { KC_RBRC, KC_NUHS },  // ]
     { KC_BSLS, KC_INT1 },  // (backslash)
-    { KC_MHEN, KC_INT5 },  // Muhenkan (無変換)
-    { KC_HENK, KC_INT4 },  // Henkan (変換)
-    { KC_KANA, KC_INT2 },  // Katakana ↔ Hiragana ↔ Rōmaji (カタカナ ↔ ひらがな ↔ ローマ字)
+    { KC_MSEL, KC_INT5 },  // Muhenkan (無変換)
+    { KC_PENT, KC_INT4 },  // Henkan (変換)
+    { KC_RALT, KC_INT2 },  // Katakana ↔ Hiragana ↔ Rōmaji (カタカナ ↔ ひらがな ↔ ローマ字)
     { KC_HASH, S(KC_3) },  // #
     { KC_AMPR, S(KC_6) },  // &
     { KC_QUOT, S(KC_7) },  // '
@@ -31,8 +31,8 @@
     { KC_PAST, S(KC_QUOT) },// *
     { KC_RCBR, S(KC_NUHS) },// }
     { KC_UNDS, S(KC_INT1) },// _
-    { KC_ZHTG, KC_GRV },   // Zenkaku ↔︎ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
+    { KC_RCTL, KC_GRV },   // Zenkaku ↔︎ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
     { KC_DQUO, S(KC_2) },  // "
-    { KC_MEISU, KC_LANG2 },// Eisū (英数) on macOS
-    { KC_MKANA, KC_LANG1 } // Kana (かな) on macOS
+    { KC_MENU, KC_LNG2 },// Eisū (英数) on macOS
+    { KC_MINS, KC_LNG1 } // Kana (かな) on macOS
 };
