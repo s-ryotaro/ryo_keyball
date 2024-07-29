@@ -38,3 +38,16 @@
     { KC_MENU, KC_LNG2 },       // Eisū (英数) on macOS
     { KC_MINS, KC_LNG1 }        // Kana (かな) on macOS
 };
+
+
+
+/*
+123456789
+!"#$%&'()
+
+
+
+
+
+
+*/

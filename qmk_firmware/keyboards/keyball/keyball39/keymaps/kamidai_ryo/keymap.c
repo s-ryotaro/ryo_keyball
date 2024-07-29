@@ -39,7 +39,7 @@
 // #include "features/overrides.h"
 #include "features/combo.h"
 #include "features/tap_dance.h"
-#include "japanese_key/keymap_jp.h"
+//#include "japanese_key/keymap_jp.h"
 
 
 #define GUI_LEFT (LGUI(KC_LEFT))// WIN + Left Arrow
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_universal(
     KC_ESC       , KC_W         , TD(TD_GUI_E) , KC_R         , KC_T           ,                                           KC_Y  , KC_U                , KC_I                , KC_O                 , KC_P             ,
     TD(TD_CTL_A) , LT(4,KC_S)   , TD(TD_GUI_D) , KC_F         , KC_G           ,                                           KC_H  , KC_J                , KC_K                , KC_L                 , KC_DOT           ,
-    TD(TD_CTL_Z) , TD(TD_CTL_X) , TD(TD_CTL_C) , TD(TD_CTL_V) , KC_B           ,                                           KC_N  , KC_M                , TD(TD_BRACKETS)     , TD(TD_KANA_SYMBOLS)	, SFT_T(KC_COMMA)  ,
+    TD(TD_CTL_Z) , TD(TD_CTL_X) , TD(TD_CTL_C) , TD(TD_CTL_V) , KC_B           ,                                           LT(4,KC_N)  , KC_M                , TD(TD_BRACKETS)     , TD(TD_KANA_SYMBOLS)	, RSFT_T(KC_COMMA)  ,
     KC_LCTL      , _______      , _______      , _______      , KC_ENT         , KC_BSPC ,          LT(2,KC_LNG1) , LT(1,KC_SPC) , LT(3,KC_LNG2)       , KC_RALT             , KC_RGUI              , KC_RCTL                 
   ),
 
@@ -98,9 +98,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [4] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    KC_MINS  , KC_EQL  , KC_LBRC  , KC_RBRC  , KC_BSLS  ,                            _______  , _______  , _______  , _______  , _______  ,
+    KC_NUHS  , KC_SCLN  , KC_QUOT  , KC_GRV  , KC_COMM  ,                            _______  , _______  , _______  , _______  , _______  ,
+    KC_SLSH  , KC_NUBS	  , KC_INT1  , KC_INT3  , KC_INT6  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
 
@@ -193,4 +193,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______
   ),
 
-*/
+
+
+
+
+  [4] = LAYOUT_universal(
+    KC_MINS  , KC_EQL  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
+  ),
+
+  */

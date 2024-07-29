@@ -23,7 +23,7 @@
  * \{
  */
 
-#include <stdint.h>
+#include <japanese_key/stdint.h>
 
 #include "progmem.h"
 #include "japanese_key/send_string_keycodes.h"
