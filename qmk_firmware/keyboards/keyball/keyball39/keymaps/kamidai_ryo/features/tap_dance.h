@@ -93,7 +93,7 @@ void dance_kana_symbols_finished(tap_dance_state_t *state, void *user_data) {
 void dance_other_symbols_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
-            tap_code16(KC_AT);    // "@"
+            tap_code16((KC_AT));    // "@"
             break;
         case 2:
             tap_code16(KC_PERC);  // "%"
@@ -123,7 +123,7 @@ void dance_other_Q_symbols_2_finished(tap_dance_state_t *state, void *user_data)
             SEND_STRING("・");
             break;
         case 3:   // 3回タップで縦棒（｜）   
-            tap_code(KC_INT3);
+            tap_code(S(KC_INT3));
             break;
         case 4:    // 4回タップで「\」  
             tap_code(KC_INT1);
@@ -149,12 +149,12 @@ tap_dance_action_t tap_dance_actions[] = {
     //記号 計算
     [TD_PLUS_MAINUS]= ACTION_TAP_DANCE_DOUBLE(LSFT(KC_SCLN),KC_MINS),         //  +  -    LSFT(KC_EQL)
     [TD_MULTI_DIVID]= ACTION_TAP_DANCE_DOUBLE(LSFT(KC_8),KC_SLSH),            //  *  /
-    [TD_EQUAL_CARET]= ACTION_TAP_DANCE_DOUBLE(KC_EQUAL,KC_EQL),               //  =  ^    (KC_EQL,LSFT(KC_6)), 
+    [TD_EQUAL_CARET]= ACTION_TAP_DANCE_DOUBLE(JP_EQL,KC_EQL),               //  =  ^    (KC_EQL,LSFT(KC_6)), 
     
     //記号 その他
     [TD_COLON_SEMICOLON]= ACTION_TAP_DANCE_DOUBLE(KC_QUOT,KC_SCLN),           //  :  ;
     [TD_FUTOUGOU]= ACTION_TAP_DANCE_DOUBLE(LSFT(KC_COMM),LSFT(KC_DOT)),       //  <  >
-    [TD_QUOTATION]= ACTION_TAP_DANCE_DOUBLE(KC_QUOTE,LSFT(KC_QUOTE)),         //  '  "
+    [TD_QUOTATION]= ACTION_TAP_DANCE_DOUBLE(KC_HASH,LSFT(KC_AT)),             //  '  "
 
     //▼3回以上タップ
     [TD_BRACKETS] = ACTION_TAP_DANCE_FN(dance_brackets_finished),
