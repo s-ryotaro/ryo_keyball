@@ -123,7 +123,7 @@ void dance_other_Q_symbols_2_finished(tap_dance_state_t *state, void *user_data)
             SEND_STRING("・");
             break;
         case 3:   // 3回タップで縦棒（｜）   
-            tap_code(S(KC_INT3));
+            tap_code(S(KC_INT3 | QK_LSFT));
             break;
         case 4:    // 4回タップで「\」  
             tap_code(KC_INT1);
@@ -149,7 +149,7 @@ tap_dance_action_t tap_dance_actions[] = {
     //記号 計算
     [TD_PLUS_MAINUS]= ACTION_TAP_DANCE_DOUBLE(LSFT(KC_SCLN),KC_MINS),         //  +  -    LSFT(KC_EQL)
     [TD_MULTI_DIVID]= ACTION_TAP_DANCE_DOUBLE(LSFT(KC_8),KC_SLSH),            //  *  /
-    [TD_EQUAL_CARET]= ACTION_TAP_DANCE_DOUBLE(JP_EQL,KC_EQL),               //  =  ^    (KC_EQL,LSFT(KC_6)), 
+    [TD_EQUAL_CARET]= ACTION_TAP_DANCE_DOUBLE(KC_EQL,KC_EQL),               //  =  ^    (KC_EQL,LSFT(KC_6)), 
     
     //記号 その他
     [TD_COLON_SEMICOLON]= ACTION_TAP_DANCE_DOUBLE(KC_QUOT,KC_SCLN),           //  :  ;
