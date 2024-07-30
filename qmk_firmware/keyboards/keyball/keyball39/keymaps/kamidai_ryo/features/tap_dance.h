@@ -1,6 +1,7 @@
 //https://yakinikunotare.boo.jp/orebase2/keyboard/diy_keyboard/qmk/tap_dance/start
 //https://docs.qmk.fm/features/tap_dance
 
+/*
 #include "quantum_keycodes.h"
 
 // Define missing keycodes if not already defined
@@ -11,6 +12,7 @@
 #ifndef KC_BSLS
 #define KC_BSLS 0x2B  // Example value for backslash key
 #endif
+*/
 
 // Tap Dance declarations
 enum tap_dance{
