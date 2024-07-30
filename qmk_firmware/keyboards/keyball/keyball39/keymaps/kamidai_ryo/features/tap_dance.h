@@ -123,7 +123,7 @@ void dance_other_Q_symbols_2_finished(tap_dance_state_t *state, void *user_data)
             SEND_STRING("・");
             break;
         case 3:   // 3回タップで縦棒（｜）   
-            tap_code(S(KC_INT3 | QK_LSFT));
+            tap_code(KC_INT3);
             break;
         case 4:    // 4回タップで「\」  
             tap_code(KC_INT1);
