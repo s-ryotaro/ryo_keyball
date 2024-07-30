@@ -49,7 +49,7 @@ enum tap_dance{
 //▼3回以上タップの関数
 //TD_BRACKETSの関数*******************************
 void send_tap_code_with_left_arrow(uint16_t keycode) {
-    tap_code(keycode);
+    tap_code16(keycode);
     tap_code(KC_LEFT);
 }
 
@@ -67,8 +67,8 @@ void dance_brackets_finished(tap_dance_state_t *state, void *user_data) {
             break;
         case 3:
             // {}
-            send_tap_code_with_left_arrow(tap_code16(S(KC_RBRC)));  
-            send_tap_code_with_left_arrow(tap_code16(S(KC_BSLS)));
+            send_tap_code_with_left_arrow(S(KC_RBRC));  
+            send_tap_code_with_left_arrow(S(KC_BSLS));
             break;
     }
     reset_tap_dance(state);
@@ -126,10 +126,10 @@ void dance_other_Q_symbols_2_finished(tap_dance_state_t *state, void *user_data)
             tap_code(KC_Q);
             break;
         case 2:   // 2回タップで中点（・）※ひらがな入力時
-            tap_code(S(KC_SLSH));
+            tap_code16(S(KC_SLSH));
             break;
         case 3:   // 3回タップで縦棒（｜）   
-            tap_code(KC_INT3);
+            tap_code16(S(KC_INT3));
             break;
         case 4:    // 4回タップで「\」  
             tap_code(KC_INT1);
