@@ -1,6 +1,8 @@
 //https://yakinikunotare.boo.jp/orebase2/keyboard/diy_keyboard/qmk/tap_dance/start
 //https://docs.qmk.fm/features/tap_dance
 
+#include "quantum_keycodes.h"
+
 // Tap Dance declarations
 enum tap_dance{
   TD_GUI_D,
