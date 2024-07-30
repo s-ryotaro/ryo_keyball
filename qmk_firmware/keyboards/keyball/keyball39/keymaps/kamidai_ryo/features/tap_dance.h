@@ -44,23 +44,18 @@ void dance_brackets_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
             // ※ひらがな入力時「」, []
-            tap_code16(KC_RBRC);
-            tap_code16(KC_BSLS);
-            tap_code16(KC_LEFT);
-            //send_tap_code_with_left_arrow(KC_LBRC);  // 「
-            //send_tap_code_with_left_arrow(KC_RBRC);  // 」
+            send_tap_code_with_left_arrow(KC_RBRC);  // 「
+            send_tap_code_with_left_arrow(KC_BSLS);  // 」
             break;
         case 2:
             // （）
-            tap_code16(LSFT(KC_9));
-            tap_code16(LSFT(KC_0));
-            tap_code16(KC_LEFT);
+            send_tap_code_with_left_arrow(LSFT(KC_9));
+            send_tap_code_with_left_arrow(LSFT(KC_0));
             break;
         case 3:
             // {}
-            tap_code16(LSFT(RBRC));
-            tap_code16(LSFT(BSLS));
-            tap_code16(KC_LEFT);
+            send_tap_code_with_left_arrow(LSFT(RBRC));
+            send_tap_code_with_left_arrow(LSFT(BSLS));
             break;
     }
     reset_tap_dance(state);
