@@ -53,6 +53,9 @@
 #define GUI_4 (LGUI(KC_4))
 #define GUI_5 (LGUI(KC_5))
 #define GUI_6 (LGUI(KC_6))
+#define GUI_7 (LGUI(KC_7))
+#define GUI_8 (LGUI(KC_8))
+#define GUI_9 (LGUI(KC_9))
 
 
 #define CTL_TAB (LCTL(KC_TAB))// ブラウザのタブ切替え→
@@ -73,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC       , KC_W         , TD(TD_GUI_E) , KC_R         , KC_T           ,                                           KC_Y  , KC_U                , KC_I                , KC_O                 , KC_P             ,
     TD(TD_CTL_A) , LT(4,KC_S)   , TD(TD_GUI_D) , KC_F         , KC_G           ,                                           KC_H  , KC_J                , KC_K                , KC_L                 , KC_DOT           ,
     TD(TD_CTL_Z) , TD(TD_CTL_X) , TD(TD_CTL_C) , TD(TD_CTL_V) , KC_B           ,                                           LT(4,KC_N)  , KC_M                , TD(TD_BRACKETS)     , TD(TD_KANA_SYMBOLS)	, RSFT_T(KC_COMMA)  ,
-    KC_LCTL      , _______      , _______      , _______      , KC_ENT         , KC_BSPC ,          LT(2,KC_LNG1) , LT(1,KC_SPC) , LT(3,KC_LNG2)       , KC_RALT             , KC_RGUI              , KC_RCTL                 
+    KC_LCTL      , _______      , _______      , _______      , LT(1,KC_ENT)         , KC_BSPC ,          LT(2,KC_LNG1) , LT(1,KC_SPC) , LT(3,KC_LNG2)       , KC_RALT             , KC_RGUI              , KC_RCTL                 
   ),
 
   [1] = LAYOUT_universal(
@@ -84,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [2] = LAYOUT_universal( 
-    _______ , _______  , _______  , _______   , _______   ,                            _______  , CTL_SFT_TAB , GUI_UP   , CTL_TAB  , ALT_UP  ,
+    _______   , GUI_7  , GUI_8    , GUI_9     , _______   ,                            _______  , CTL_SFT_TAB , GUI_UP   , CTL_TAB  , ALT_UP  ,
     _______   , GUI_4  , GUI_5    , GUI_6     , _______   ,                            _______  , GUI_LEFT    , GUI_DOWN , GUI_RIGHT , _______  ,
     _______   , GUI_1  , GUI_2    , GUI_3     , KC_INT4   ,                            _______  , _______     , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______   , _______  , _______  ,      _______  , _______  , _______     , _______  , _______  , _______  
@@ -98,9 +101,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [4] = LAYOUT_universal(
-    KC_MINS  , KC_EQL  , KC_LBRC  , KC_RBRC  , KC_BSLS  ,                            _______  , _______  , _______  , _______  , _______  ,
-    KC_NUHS  , KC_SCLN  , KC_QUOT  , KC_GRV  , KC_COMM  ,                            _______  , _______  , _______  , _______  , _______  ,
-    KC_SLSH  , KC_NUBS	  , KC_INT1  , KC_INT3  , KC_INT6  ,                            _______  , _______  , _______  , _______  , _______  ,
+    TD(TD_OTHER_SYMBOLS)  , TD(TD_COLON_SEMICOLON)  , TD(TD_FUTOUGOU)  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    TD(TD_QUOTATION)  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    TD(TD_KANA_SYMBOLS)  , TD(TD_BRACKETS)  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
 
@@ -198,7 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
   [4] = LAYOUT_universal(
-    KC_MINS  , KC_EQL  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
