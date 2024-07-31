@@ -160,7 +160,7 @@ tap_dance_action_t tap_dance_actions[] = {
     //記号 その他
     [TD_COLON_SEMICOLON]= ACTION_TAP_DANCE_DOUBLE(KC_QUOT,KC_SCLN),        //  :  ;
     [TD_FUTOUGOU]= ACTION_TAP_DANCE_DOUBLE(S(KC_COMM),S(KC_DOT)),          //  <  >
-    [TD_QUOTATION]= ACTION_TAP_DANCE_DOUBLE(S(KC_7),S(KC_2)),              //  '  "
+    [TD_QUOTATION]= ACTION_TAP_DANCE_DOUBLE(S(KC_7),S(KC_2)),    s          //  '  "
 
     //▼3回以上タップ
     [TD_BRACKETS] = ACTION_TAP_DANCE_FN(dance_brackets_finished),
