@@ -82,14 +82,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_universal(
     TD(TD_OTHER_Q_SYMBOLS_2) , KC_7     ,KC_8      ,KC_9      ,TD(TD_MULTI_DIVID)     ,                                                        KC_DEL , KC_F2                    , KC_UP           , KC_HOME          , KC_END             ,
     KC_DOT                   , KC_4     ,KC_5      ,KC_6      ,TD(TD_PLUS_MAINUS)     ,                                          TD(TD_OTHER_SYMBOLS) , KC_LEFT                  , KC_DOWN         , KC_RIGHT         , KC_PAGE_UP         ,
-    KC_0                     , KC_1     ,KC_2      ,KC_3      ,TD(TD_EQUAL_CARET)     ,                                        TD(TD_COLON_SEMICOLON) , TD(TD_MINUS_TO_UNDUNDER) , TD(TD_FUTOUGOU) , TD(TD_QUOTATION) , CTL_T(KC_PAGE_DOWN),
+    KC_0                     , KC_1     ,KC_2      ,KC_3      ,TD(TD_EQUAL_CARET)     ,                                        TD(TD_COLON_SEMICOLON) , TD(TD_MINUS_TO_UNDUNDER) , TD(TD_FUTOUGOU) , TD(TD_QUOTATION) , RSFT_T(KC_PAGE_DOWN),
     _______                  , _______  , _______  , _______  , _______               , _______ ,                   _______ ,           _______       , _______                  , _______         , _______          , _______
   ),
 
   [2] = LAYOUT_universal( 
-    _______   , GUI_7  , GUI_8    , GUI_9     , _______   ,                            _______  , CTL_SFT_TAB , GUI_UP   , CTL_TAB  , ALT_UP  ,
+    KC_Q      , GUI_7  , GUI_8    , GUI_9     , _______   ,                            _______  , CTL_SFT_TAB , GUI_UP   , CTL_TAB  , ALT_UP  ,
     _______   , GUI_4  , GUI_5    , GUI_6     , _______   ,                            _______  , GUI_LEFT    , GUI_DOWN , GUI_RIGHT , _______  ,
-    _______   , GUI_1  , GUI_2    , GUI_3     , KC_INT4   ,                            _______  , _______     , _______  , _______  , _______  ,
+    _______   , GUI_1  , GUI_2    , GUI_3     , KC_INT4   ,                            _______  , _______     , _______  , _______  , KC_LSFT  ,
     _______  , _______  , _______  , _______   , _______  , _______  ,      _______  , _______  , _______     , _______  , _______  , _______  
   ),
 
@@ -101,9 +101,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [4] = LAYOUT_universal(
-    TD(TD_OTHER_SYMBOLS)  , TD(TD_COLON_SEMICOLON)  , TD(TD_FUTOUGOU)  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    TD(TD_QUOTATION)  , _______  , _______  , _______  , KC_SCLN  ,                            _______  , _______  , _______  , _______  , _______  ,
-    TD(TD_KANA_SYMBOLS)  , TD(TD_BRACKETS)  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
 

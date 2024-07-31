@@ -108,7 +108,7 @@ void dance_other_symbols_finished(tap_dance_state_t *state, void *user_data) {
             tap_code16(KC_HASH);  // "#"
             break;
         case 5:
-            tap_code16(S(KC_7));  // "&"
+            tap_code16(S(KC_6));  // "&"
             break;
         case 6:
             tap_code16(S(KC_4));  // "$"
