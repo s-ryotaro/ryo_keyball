@@ -57,18 +57,18 @@ void dance_brackets_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
             // ※ひらがな入力時「」, []
-            send_tap_code_with_left_arrow(KC_RBRC);  // 「
-            send_tap_code_with_left_arrow(KC_BSLS);  // 」
+            send_tap_code_with_left_arrow(KC_BSLS);  // 「
+            send_tap_code_with_left_arrow(KC_RBRC);  // 」
             break;
         case 2:
             // （）
+            send_tap_code_with_left_arrow(S(KC_8));
             send_tap_code_with_left_arrow(S(KC_9));
-            send_tap_code_with_left_arrow(S(KC_0));
             break;
         case 3:
             // {}
-            send_tap_code_with_left_arrow(S(KC_RBRC));  
-            send_tap_code_with_left_arrow(S(KC_BSLS));
+            send_tap_code_with_left_arrow(S(KC_BSLS));  
+            send_tap_code_with_left_arrow(S(KC_RBRC));
             break;
     }
     reset_tap_dance(state);
@@ -126,7 +126,7 @@ void dance_other_Q_symbols_2_finished(tap_dance_state_t *state, void *user_data)
             tap_code(KC_Q);
             break;
         case 2:   // 2回タップで中点（・）※ひらがな入力時
-            tap_code16(S(KC_SLSH));
+            tap_code(KC_SLSH);
             break;
         case 3:   // 3回タップで縦棒（｜）   
             tap_code16(S(KC_INT3));
@@ -154,13 +154,13 @@ tap_dance_action_t tap_dance_actions[] = {
 
     //記号 計算
     [TD_PLUS_MAINUS]= ACTION_TAP_DANCE_DOUBLE(S(KC_SCLN),KC_MINS),         //  +  -    LSFT(KC_EQL)
-    [TD_MULTI_DIVID]= ACTION_TAP_DANCE_DOUBLE(S(KC_EQL),KC_SLSH),          //  *  /
+    [TD_MULTI_DIVID]= ACTION_TAP_DANCE_DOUBLE(S(KC_QUOT),KC_SLSH),         //  *  /
     [TD_EQUAL_CARET]= ACTION_TAP_DANCE_DOUBLE(S(KC_MINS),KC_EQL),          //  =  ^    (KC_EQL,LSFT(KC_6)), 
     
     //記号 その他
-    [TD_COLON_SEMICOLON]= ACTION_TAP_DANCE_DOUBLE(KC_QUOT,KC_SCLN),           //  :  ;
-    [TD_FUTOUGOU]= ACTION_TAP_DANCE_DOUBLE(S(KC_COMM),S(KC_DOT)),       //  <  >
-    [TD_QUOTATION]= ACTION_TAP_DANCE_DOUBLE(KC_QUOT,S(KC_QUOT)),           //  '  "
+    [TD_COLON_SEMICOLON]= ACTION_TAP_DANCE_DOUBLE(KC_QUOT,KC_SCLN),        //  :  ;
+    [TD_FUTOUGOU]= ACTION_TAP_DANCE_DOUBLE(S(KC_COMM),S(KC_DOT)),          //  <  >
+    [TD_QUOTATION]= ACTION_TAP_DANCE_DOUBLE(S(KC_7),S(KC_2)),              //  '  "
 
     //▼3回以上タップ
     [TD_BRACKETS] = ACTION_TAP_DANCE_FN(dance_brackets_finished),

@@ -2,23 +2,23 @@
 
 OLED_ENABLE = yes
 
-##VIA_ENABLE = yes
+VIA_ENABLE = yes
 
-##EXTRAKEY_ENABLE = yes
+EXTRAKEY_ENABLE = yes
 
 COMBO_ENABLE = yes
 
 TAP_DANCE_ENABLE = yes
 
-##OS_DETECTION_ENABLE = yes
+OS_DETECTION_ENABLE = yes
 
 MACRO_ENABLE = yes
 
 ### 使っていないもの
 ### 以下はメモリ不足のため、VIAをOFFにする必要がある
-# KEY_OVERRIDE_ENABLE = yes
+KEY_OVERRIDE_ENABLE = no
 
-# AUTO_SHIFT_ENABLE = yes
+AUTO_SHIFT_ENABLE = no
 
 # ファームウェアのサイズを削減
 # EXTRAFLAGS += -flto
