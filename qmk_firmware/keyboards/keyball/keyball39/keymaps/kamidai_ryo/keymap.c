@@ -50,8 +50,8 @@
 //ios
 #define iOS_HOME (LGUI(KC_H))// COMAND + H
 #define iOS_APP_SWICH (LGUI(KC_TAB))// COMAND + TAB
-#define iOS_SCSHO_3 (LSG_T(kc_3))// COMAND + SFT + 3
-#define iOS_SCSHO_4 (LSG_T(kc_4))// COMAND + SFT + 4
+#define iOS_SCSHO_3 (LSG_T(KC_3))// COMAND + SFT + 3
+#define iOS_SCSHO_4 (LSG_T(KC_4))// COMAND + SFT + 4
 
 
 #define GUI_1 (LGUI(KC_1))
