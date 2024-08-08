@@ -45,6 +45,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KEYBALL_CPI_DEFAULT 1000       // 光学センサーPMW3360DM の解像度 (CPI) の規定値
 #define KEYBALL_SCROLL_DIV_DEFAULT 6  // スクロール速度の規定値
 
+
+#define AUTO_MOUSE_LAYER_KEEP_TIME 30000 //★240808_1
+
+
 // ファームウェアのサイズを削減
 #define NO_ACTION_ONESHOT  // 392バイト
 

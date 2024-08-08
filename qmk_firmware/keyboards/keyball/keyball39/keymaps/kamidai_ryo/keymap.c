@@ -122,7 +122,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   //keyball_set_scroll_mode(get_highest_layer(state) == 1 || get_highest_layer(state) == 3);
   keyball_set_scroll_mode(get_highest_layer(state) == 4);
 
-  // レイヤーとLEDを連動させる
+  //★240808_2 stt
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+    //keyball_keep_auto_mouse_layer_if_needed(state);★240808_2-1　コメントアウト化
+    keyball_handle_auto_mouse_layer_change(state); //★240808_2-2
+  //★240808_2　end
+
   return state;
 }
 

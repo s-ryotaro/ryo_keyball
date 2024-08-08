@@ -33,6 +33,8 @@ const uint16_t AML_TIMEOUT_MIN = 100;
 const uint16_t AML_TIMEOUT_MAX = 1000;
 const uint16_t AML_TIMEOUT_QU  = 50;   // Quantization Unit
 
+const int16_t AML_ACTIVATE_THRESHOLD = 10;//★240808_3
+
 static const char BL = '\xB0'; // Blank indicator character
 static const char LFSTR_ON[] PROGMEM = "\xB2\xB3";
 static const char LFSTR_OFF[] PROGMEM = "\xB4\xB5";
@@ -50,6 +52,9 @@ keyball_t keyball = {
 
     .scroll_mode = false,
     .scroll_div  = 0,
+
+    .last_layer_state = 0,//★240808_4
+    .total_mouse_movement = 0,//★240808_2-3
 
     .pressing_keys = { BL, BL, BL, BL, BL, BL, 0 },
 };
@@ -316,6 +321,72 @@ static inline bool should_report(void) {
     return true;
 }
 
+//★240808_5 stt
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+static uint16_t keyball_get_auto_mouse_timeout(void) {
+    return keyball.auto_mouse_layer_timeout;
+}
+
+static void keyball_set_auto_mouse_timeout(uint16_t timeout) {
+    keyball.auto_mouse_layer_timeout = timeout;
+}
+
+static uint16_t get_auto_mouse_keep_time(void) {
+#ifdef AUTO_MOUSE_LAYER_KEEP_TIME
+        return AUTO_MOUSE_LAYER_KEEP_TIME;
+#else
+        return keyball_get_auto_mouse_timeout();
+#endif
+}
+
+static int16_t movement_size_of(report_mouse_t *rep) {//★240808_2-4　コメントアウト化
+static uint16_t movement_size_of(report_mouse_t *rep) {//★240808_2-5
+    return abs(rep->x) + abs(rep->y);
+}
+
+
+/* ★240808_2-6　コメントアウト化
+
+static void extend_auto_mouse_timeout_by_motion(report_mouse_t *rep) {
+    int16_t movement_size = movement_size_of(rep);
+    // extend auto mouse timeout if mouse is moving,
+    // but ignore it if the movement is small
+    if (get_auto_mouse_timeout() != get_auto_mouse_keep_time() && AML_ACTIVATE_THRESHOLD < movement_size) {
+        set_auto_mouse_timeout(get_auto_mouse_keep_time());
+    }
+}
+
+https://github.com/qmk/qmk_firmware/blob/0.22.14/quantum/pointing_device/pointing_device_auto_mouse.c#L208-L221
+*/
+
+// override qmk function
+// activate auto mouse layer when mouse movement exceeds the threshold.
+bool auto_mouse_activation(report_mouse_t mouse_report) {
+
+/* ★240808_2-7　コメントアウト化
+        int16_t movement_size = movement_size_of(&mouse_report);
+    return AML_ACTIVATE_THRESHOLD < movement_size || mouse_report.buttons;
+*/
+
+// ★240808_2-8 stt
+    keyball.total_mouse_movement += movement_size_of(&mouse_report);
+    if (AML_ACTIVATE_THRESHOLD < keyball.total_mouse_movement) {
+        keyball.total_mouse_movement = 0;
+        if (get_auto_mouse_timeout() != get_auto_mouse_keep_time()) {
+            // keep AML if mouse is moving with "short timeout".
+            set_auto_mouse_timeout(get_auto_mouse_keep_time());
+        }
+        return true;
+    } else {
+        return mouse_report.buttons;
+    }
+// ★240808_2-8 end
+}
+#endif
+
+
+//★240808_5 end
+
 report_mouse_t pointing_device_driver_get_report(report_mouse_t rep) {
     // fetch from optical sensor.
     if (keyball.this_have_ball) {
@@ -332,6 +403,18 @@ report_mouse_t pointing_device_driver_get_report(report_mouse_t rep) {
         // modify mouse report by PMW3360 motion.
         motion_to_mouse(&keyball.this_motion, &rep, is_keyboard_left(), keyball.scroll_mode);
         motion_to_mouse(&keyball.that_motion, &rep, !is_keyboard_left(), keyball.scroll_mode ^ keyball.this_have_ball);
+        
+/*★240808_6 stt
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+        // reset auto mouse timeout to auto_mouse_keep_time if mouse is moving on auto mouse layer.
+        if (layer_state_is(AUTO_MOUSE_DEFAULT_LAYER)) {
+            extend_auto_mouse_timeout_by_motion(&rep);
+        }
+#endif
+★240808_2-9　コメントアウト化
+*/
+//★240808_6 end
+        
         // store mouse report for OLED.
         keyball.last_mouse = rep;
     }
@@ -555,7 +638,8 @@ void keyball_oled_render_layerinfo(void) {
         oled_write_P(LFSTR_OFF, false);
     }
 
-    oled_write(format_4d(get_auto_mouse_timeout() / 10) + 1, false);
+    //oled_write(format_4d(get_auto_mouse_timeout() / 10) + 1, false); //★240808_7コメントアウト化
+    oled_write(format_4d(keyball_get_auto_mouse_timeout() / 10) + 1, false);//★240808_8
     oled_write_char('0', false);
 #    else
     oled_write_P(PSTR("\xC2\xC3\xB4\xB5 ---"), false);
@@ -613,6 +697,25 @@ void keyball_set_cpi(uint8_t cpi) {
         pmw3360_cpi_set(cpi == 0 ? CPI_DEFAULT - 1 : cpi - 1);
     }
 }
+//★240808_9 stt / ★240808_2-10　追記とコメントアウト
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+//void keyball_keep_auto_mouse_layer_if_needed(layer_state_t state) {
+void keyball_handle_auto_mouse_layer_change(layer_state_t state) {
+    layer_state_t last_state = keyball.last_layer_state;
+    //if (layer_state_cmp(last_state, AUTO_MOUSE_DEFAULT_LAYER) && !layer_state_cmp(state, AUTO_MOUSE_DEFAULT_LAYER)) {
+    //    set_auto_mouse_timeout(get_auto_mouse_keep_time());
+    // go into AML
+    if (!layer_state_cmp(last_state, AUTO_MOUSE_DEFAULT_LAYER) && layer_state_cmp(state, AUTO_MOUSE_DEFAULT_LAYER)) {
+        keyball.total_mouse_movement = 0;
+    } // go out AML
+    else if (layer_state_cmp(last_state, AUTO_MOUSE_DEFAULT_LAYER) && !layer_state_cmp(state, AUTO_MOUSE_DEFAULT_LAYER)) {
+        set_auto_mouse_timeout(get_auto_mouse_keep_time());
+        keyball.total_mouse_movement = 0;
+    }
+    keyball.last_layer_state = state;
+}
+#endif
+//★240808_9 end
 
 //////////////////////////////////////////////////////////////////////////////
 // Keyboard hooks
@@ -634,7 +737,8 @@ void keyboard_post_init_kb(void) {
         keyball_set_scroll_div(c.sdiv);
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
         set_auto_mouse_enable(c.amle);
-        set_auto_mouse_timeout(c.amlto == 0 ? AUTO_MOUSE_TIME : (c.amlto + 1) * AML_TIMEOUT_QU);
+        //set_auto_mouse_timeout(c.amlto == 0 ? AUTO_MOUSE_TIME : (c.amlto + 1) * AML_TIMEOUT_QU);//★240808_10　コメントアウト化
+        keyball_set_auto_mouse_timeout(c.amlto == 0 ? AUTO_MOUSE_TIME : (c.amlto + 1) * AML_TIMEOUT_QU);//★240808_11
 #endif
 #if KEYBALL_SCROLLSNAP_ENABLE == 2
         keyball_set_scrollsnap_mode(c.ssnap);
@@ -703,6 +807,18 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
         keycode &= 0xff;
     }
 
+    //★240808_12 stt　/* ★240808_2-11　追記とコメントアウト化
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+    // reduce auto mouse timeout if mouse key is pressed.
+    //if (is_mouse_record_kb(keycode, record) || IS_MOUSEKEY(keycode)) {
+    if ((is_mouse_record_kb(keycode, record) || IS_MOUSEKEY(keycode)) && record->event.pressed) {
+        set_auto_mouse_timeout(keyball_get_auto_mouse_timeout());
+        keyball.total_mouse_movement = 0;
+    }
+#endif
+    //★240808_12 end
+    
+
     switch (keycode) {
 #ifndef MOUSEKEY_ENABLE
         // process KC_MS_BTN1~8 by myself
@@ -739,7 +855,8 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                     .sdiv  = keyball.scroll_div,
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
                     .amle  = get_auto_mouse_enable(),
-                    .amlto = (get_auto_mouse_timeout() / AML_TIMEOUT_QU) - 1,
+                    //.amlto = (get_auto_mouse_timeout() / AML_TIMEOUT_QU) - 1,//★240808_13　コメントアウト化
+                    .amlto = (keyball_get_auto_mouse_timeout() / AML_TIMEOUT_QU) - 1,//★240808_14
 #endif
 #if KEYBALL_SCROLLSNAP_ENABLE == 2
                     .ssnap = keyball_get_scrollsnap_mode(),
@@ -789,14 +906,28 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 break;
             case AML_I50:
                 {
+                    /*//★240808_15
                     uint16_t v = get_auto_mouse_timeout() + 50;
                     set_auto_mouse_timeout(MIN(v, AML_TIMEOUT_MAX));
+                    */
+                   //★240808_16 stt
+                    uint16_t v = keyball_get_auto_mouse_timeout() + 50;
+                    keyball_set_auto_mouse_timeout(MIN(v, AML_TIMEOUT_MAX));
+                   //★240808_16 end
+
                 }
                 break;
             case AML_D50:
                 {
+                    /*//★240808_17
                     uint16_t v = get_auto_mouse_timeout() - 50;
                     set_auto_mouse_timeout(MAX(v, AML_TIMEOUT_MIN));
+                    */
+                   //★240808_18 stt
+                    uint16_t v = keyball_get_auto_mouse_timeout() - 50;
+                    keyball_set_auto_mouse_timeout(MAX(v, AML_TIMEOUT_MIN));
+                   //★240808_18 end
+
                 }
                 break;
 #endif
