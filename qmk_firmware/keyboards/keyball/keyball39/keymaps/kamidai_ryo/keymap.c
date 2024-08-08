@@ -47,6 +47,13 @@
 #define GUI_UP (LGUI(KC_UP))// WIN + Up Arrow
 #define GUI_DOWN (LGUI(KC_DOWN))// WIN + Down Arrow
 
+//ios
+#define iOS_HOME (LGUI(KC_H))// COMAND + H
+#define iOS_APP_SWICH (LGUI(KC_TAB))// COMAND + TAB
+#define iOS_SCSHO_3 (LSG_T(kc_3))// COMAND + SFT + 3
+#define iOS_SCSHO_4 (LSG_T(kc_4))// COMAND + SFT + 4
+
+
 #define GUI_1 (LGUI(KC_1))
 #define GUI_2 (LGUI(KC_2))
 #define GUI_3 (LGUI(KC_3))
@@ -101,8 +108,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [4] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , iOS_HOME  , iOS_APP_SWICH  , iOS_SCSHO_3  ,                            _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , iOS_SCSHO_4  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
