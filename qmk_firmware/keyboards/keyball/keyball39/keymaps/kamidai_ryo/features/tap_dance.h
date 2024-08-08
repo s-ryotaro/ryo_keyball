@@ -61,9 +61,9 @@ void dance_brackets_finished(tap_dance_state_t *state, void *user_data) {
             send_tap_code_with_left_arrow(KC_RBRC);  // 」
             break;
         case 2:
-            // （）
-            send_tap_code_with_left_arrow(S(KC_8));
+            // （）l
             send_tap_code_with_left_arrow(S(KC_9));
+            send_tap_code_with_left_arrow(S(KC_8));
             break;
         case 3:
             // {}

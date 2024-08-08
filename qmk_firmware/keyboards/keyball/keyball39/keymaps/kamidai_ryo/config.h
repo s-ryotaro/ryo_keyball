@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define RGBLIGHT_EFFECT_TWINKLE
 //#endif
 
-#define COMBO_COUNT 4
+#define COMBO_COUNT 3
 #define COMBO_TERM 40 //デフォルトでは、コンボが認識されるまでのタイムアウトは 50 ミリ秒に設定されています。コンボが誤って失敗する、またはキーを同時に押すのが難しい場合は、この設定を変更できます
 
 #define KEYBALL_SCROLLSNAP_ENABLE 0  // scrollsnapをオフにする
