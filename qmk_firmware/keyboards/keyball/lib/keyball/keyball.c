@@ -177,9 +177,9 @@ static void adjust_mouse_speed(keyball_motion_t *m){
   // movement_size に基づいて speed_multiplier を計算する関数
   float speed_multiplier_corrected(int16_t speed_value) {
     if (speed_value >= 11) {
-      return speed_value*0.75 - 5.5; // 直線の式→240808 傾き1/1から75/100に緩めた
+      return speed_value*0.9 - 6.5; // 直線の式→240808 傾き1/1から75/100に緩めた
     }
-    return 0.2 * speed_value; // 10 未満のときの速度倍率→240808 10以下の移動量補正を前回の半分に変更
+    return 0.25 * speed_value; // 10 未満のときの速度倍率→240808 10以下の移動量補正を前回の半分に変更
   }
 
   // x_value に基づいて速度倍率を計算し、m->x を補正
