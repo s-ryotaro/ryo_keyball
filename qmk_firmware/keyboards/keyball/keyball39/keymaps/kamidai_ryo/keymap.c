@@ -30,7 +30,7 @@
 
 #include "utils/functions.h"
 //#include "features/swipe_gesture.h"
-#include "features/auto_click_layer.h"
+//#include "features/auto_click_layer.h"
 // #include "features/back_to_layer0_btn1.h"
 #include "features/one_tap_multi_click.h"
 #include "features/macro_keys.h"
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [4] = LAYOUT_universal(
     _______  , _______  , iOS_HOME  , iOS_APP_SWICH  , iOS_SCSHO_3  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , iOS_SCSHO_4  ,                            _______  , _______  , _______  , _______  , _______  ,
-    _______  , _______  , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
+    KC_CAPS  , KC_C     , _______  , _______  , _______  ,                            _______  , _______  , _______  , _______  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , _______  , _______  
   ),
 
