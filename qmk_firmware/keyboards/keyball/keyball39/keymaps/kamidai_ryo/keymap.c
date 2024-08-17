@@ -69,13 +69,7 @@
 #define CTL_SFT_TAB (LCTL(LSFT(KC_TAB)))// ブラウザのタブ切替え← 右修飾キー
 #define ALT_UP (LALT(KC_UP)) // 上の階層へ
 
-// どこでも良いので以下を記載
-//https://qiita.com/toxaO/items/dc9ead660a6c4e8075c6
-//#define KEYBALL_SCROLL_INV 1
-// →　コンパイルエラーをGPT提案で回避「KEYBALL_SCROLL_INVの再定義を避ける」
-//#ifndef KEYBALL_SCROLL_INV
 
-//
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
@@ -159,7 +153,7 @@ void oledkit_render_info_user(void) {
   // oled_write(get_u8_str(mouse_movement, ' '), false);
   // oled_write_P(PSTR("/"), false);
   // oled_write(get_u8_str(to_clickable_movement, ' '), false);
-
+  
   // <state>を表示
   switch (state) {
     case WAITING:
@@ -174,18 +168,19 @@ void oledkit_render_info_user(void) {
     case CLICKED:
       oled_write_ln_P(PSTR("  CLICKED"), false);
       break;
-    /*  
+      
     case SWIPE:
       oled_write_ln_P(PSTR("  SWIPE"), false);
       break;
     case SWIPING:
       oled_write_ln_P(PSTR("  SWIPING"), false);
       break;
-    */
+    
     case NONE:
       oled_write_ln_P(PSTR("  NONE"), false);
       break;
   }
+  
 }
 #endif
 

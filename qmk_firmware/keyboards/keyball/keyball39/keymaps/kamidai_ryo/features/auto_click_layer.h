@@ -21,7 +21,7 @@
  *
  */
 
-enum ball_state {
+ enum ball_state {
   NONE = 0,
   WAITING,    // マウスレイヤーが有効になるのを待つ
   CLICKABLE,  // マウスレイヤー有効になりクリック入力が取れる
