@@ -30,7 +30,7 @@
 
 #include "utils/functions.h"
 //#include "features/swipe_gesture.h"
-//#include "features/auto_click_layer.h"
+#include "features/auto_click_layer.h"
 // #include "features/back_to_layer0_btn1.h"
 #include "features/one_tap_multi_click.h"
 #include "features/macro_keys.h"
@@ -168,14 +168,14 @@ void oledkit_render_info_user(void) {
     case CLICKED:
       oled_write_ln_P(PSTR("  CLICKED"), false);
       break;
-      
+    /*  
     case SWIPE:
       oled_write_ln_P(PSTR("  SWIPE"), false);
       break;
     case SWIPING:
       oled_write_ln_P(PSTR("  SWIPING"), false);
       break;
-    
+    */
     case NONE:
       oled_write_ln_P(PSTR("  NONE"), false);
       break;
