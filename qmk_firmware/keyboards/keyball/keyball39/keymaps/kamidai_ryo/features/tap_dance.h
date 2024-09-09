@@ -24,6 +24,7 @@ enum tap_dance{
   TD_CTL_X,
   TD_CTL_C,
   TD_CTL_V,
+  TD_CTL_R,
 
   TD_MINUS_TO_UNDUNDER,   //レイヤ2
 
@@ -38,15 +39,30 @@ enum tap_dance{
   TD_FUTOUGOU,            //レイヤ2
   TD_QUOTATION,           //レイヤ2
 
-  //▼3回以上タップ
+  //▼2回以上タップ
+  TD_KUTOUTEN,            //レイヤ0
   TD_BRACKETS,            //レイヤ1
   TD_KANA_SYMBOLS,        //レイヤ1
   TD_OTHER_SYMBOLS,       //レイヤ2
   TD_OTHER_Q_SYMBOLS_2,   //レイヤ2
-};
+}
 
 
-//▼3回以上タップの関数
+//▼2回以上タップの関数
+//TD_KUTOUTENの関数*******************************
+void dance_kutouten_finished(tap_dance_state_t *state, void *user_data) {
+    switch (state->count) {
+        case 1:
+            tap_code16(KC_DOT);  // "。"
+            break;
+        case 2:
+            tap_code16(RALT_T(KC_COMMA));  // "、"
+            break;
+    }
+    reset_tap_dance(state);
+}
+//TD_KUTOUTENの関数　ここまで
+
 //TD_BRACKETSの関数*******************************
 void send_tap_code_with_left_arrow(uint16_t keycode) {
     tap_code16(keycode);
@@ -149,6 +165,7 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_CTL_X] = ACTION_TAP_DANCE_DOUBLE(KC_X,LCTL(KC_X)),
     [TD_CTL_C] = ACTION_TAP_DANCE_DOUBLE(KC_C,LCTL(KC_C)),
     [TD_CTL_V] = ACTION_TAP_DANCE_DOUBLE(KC_V,LCTL(KC_V)),
+    [TD_CTL_R] = ACTION_TAP_DANCE_DOUBLE(KC_R,LCTL(KC_R)),
     
     [TD_MINUS_TO_UNDUNDER] = ACTION_TAP_DANCE_DOUBLE(KC_MINUS,S(KC_INT1)),
 
@@ -162,7 +179,8 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_FUTOUGOU]= ACTION_TAP_DANCE_DOUBLE(S(KC_COMM),S(KC_DOT)),          //  <  >
     [TD_QUOTATION]= ACTION_TAP_DANCE_DOUBLE(S(KC_7),S(KC_2)),              //  '  "
 
-    //▼3回以上タップ
+    //▼2回以上タップ
+    [TD_KUTOUTEN] = ACTION_TAP_DANCE_FN(dance_kutouten_finished),
     [TD_BRACKETS] = ACTION_TAP_DANCE_FN(dance_brackets_finished),
     [TD_KANA_SYMBOLS] = ACTION_TAP_DANCE_FN(dance_kana_symbols_finished),
     [TD_OTHER_SYMBOLS] = ACTION_TAP_DANCE_FN(dance_other_symbols_finished),
