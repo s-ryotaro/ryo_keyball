@@ -45,7 +45,7 @@ enum tap_dance{
   TD_KANA_SYMBOLS,        //レイヤ1
   TD_OTHER_SYMBOLS,       //レイヤ2
   TD_OTHER_Q_SYMBOLS_2,   //レイヤ2
-}
+};
 
 
 //▼2回以上タップの関数
