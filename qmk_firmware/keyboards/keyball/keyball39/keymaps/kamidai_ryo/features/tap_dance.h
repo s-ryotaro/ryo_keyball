@@ -16,36 +16,36 @@
 
 // Tap Dance declarations
 enum tap_dance{
-  TD_GUI_D,
-  TD_GUI_E,
+  TD_GUI_D, //0x5700
+  TD_GUI_E, //0x5701
 
-  TD_CTL_A,
-  TD_CTL_Z,
-  TD_CTL_X,
-  TD_CTL_C,
-  TD_CTL_V,
-  TD_CTL_R,
+  TD_CTL_A, //0x5702
+  TD_CTL_Z, //0x5703
+  TD_CTL_X, //0x5704
+  TD_CTL_C, //0x5705
+  TD_CTL_V, //0x5706
+  TD_CTL_R, //0x5707
 
-  TD_MINUS_TO_UNDUNDER,   //レイヤ2
+  TD_MINUS_TO_UNDUNDER,   //レイヤ2 0x5708
 
   //記号 計算
-  TD_PLUS_MAINUS,         //レイヤ2
-  TD_MULTI_DIVID,         //レイヤ2
-  TD_EQUAL_CARET,         //レイヤ2
+  TD_PLUS_MAINUS,         //レイヤ2 0x5709
+  TD_MULTI_DIVID,         //レイヤ2 0x570A
+  TD_EQUAL_CARET,         //レイヤ2 0x570B
   
   
   //記号 その他
-  TD_COLON_SEMICOLON,     //レイヤ2
-  TD_FUTOUGOU,            //レイヤ2
-  TD_QUOTATION,           //レイヤ2
+  TD_COLON_SEMICOLON,     //レイヤ2 0x570C
+  TD_FUTOUGOU,            //レイヤ2 0x570D
+  TD_QUOTATION,           //レイヤ2 0x570E
 
   //▼2回以上タップ
-  TD_KUTOUTEN,            //レイヤ0
-  TD_BRACKETS,            //レイヤ1
-  TD_KANA_SYMBOLS,        //レイヤ1
-  TD_OTHER_SYMBOLS,       //レイヤ2
-  TD_OTHER_Q_SYMBOLS_2,   //レイヤ2
-};
+  TD_KUTOUTEN,            //レイヤ0 0x570F
+  TD_BRACKETS,            //レイヤ1 0x5710
+  TD_KANA_SYMBOLS,        //レイヤ1 0x5711
+  TD_OTHER_SYMBOLS,       //レイヤ2 0x5712
+  TD_OTHER_Q_SYMBOLS_2,   //レイヤ2 0x5713
+}; 
 
 
 //▼2回以上タップの関数
@@ -53,10 +53,10 @@ enum tap_dance{
 void dance_kutouten_finished(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
-            tap_code16(KC_DOT);  // "。"
+            tap_code16(RALT_T(KC_COMMA));  // "、"
             break;
         case 2:
-            tap_code16(RALT_T(KC_COMMA));  // "、"
+            tap_code16(KC_DOT);  // "。"
             break;
     }
     reset_tap_dance(state);
