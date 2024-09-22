@@ -115,6 +115,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false; // 他のキーコードの処理を停止
     }
+       /////240922 escapeキーでクリックレイヤー解除
+        case KC_ESC:  // エスケープキーのコード
+            if (record->event.pressed) {
+                // エスケープキーが押されたとき
+                disable_click_layer();
+            }
+            return true;  // エスケープキーの通常の動作も実行
+
     //return true; // 他のキーコードの処理を続行
     // KC_GS_UP　ここまで
 
